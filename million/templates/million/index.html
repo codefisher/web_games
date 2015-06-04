@@ -1,14 +1,22 @@
 <html>
 <head>
- <meta charset="utf-8"/>
- <title>Who Wants to be a Millionaire?</title>
+	<meta charset="utf-8"/>
+	<title>Who Wants to be a Millionaire?</title>
+	<link href="/static/style.css" rel="stylesheet">
 </head>
 <body>
+	<div id="index">
+		<h1>
+			Who Wants to </br> be a Millionaire?
+		</h1>
 
-<ul>
-	{% for game in games %}
-		<li><a href="{{ game.get_absolute_url }}">{{ game.name }}</a></li>
-	{% endfor %}
-</ul>
-
+		<p>
+			Please Choose a Game to Play!
+		</p>
+		<ul>
+			{% for game in games %}
+				<li><a href="{{ game.get_absolute_url }}">{{ game.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
 </body>
