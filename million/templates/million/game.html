@@ -1,0 +1,16 @@
+<html>
+<head>
+ <meta charset="utf-8"/>
+ <title>{{ game.name }}</title>
+</head>
+<body>
+
+<h1>{{ game.name }}</h1>
+
+<ol>
+	{% for question in questions %}
+		<li><a href="{{ question.get_absolute_url }}">{{ question.dollars }}</a></li>
+	{% endfor %}
+</ol>
+
+</body>
