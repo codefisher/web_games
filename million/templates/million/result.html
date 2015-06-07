@@ -1,0 +1,39 @@
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>{{ game.name }}</title>
+	<link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+
+	<div id="index">
+		<h1>
+			Who Wants to </br> be a Millionaire?
+		</h1>
+		<div id="content">
+			<div id="game">
+				<h2>{{ game.name }}</h2>
+				{% if correct %}
+					<h2 class="correct">Correct!</h2>
+					<p>Is that your last answer?</p>
+					<table>
+						<tr>
+							<td><a href="{% url 'million-game' game_id=game.pk %}">Yes</a></td>
+							<td><a href="{% url 'million-play' game_id=game.pk %}">No</a></td>
+						</tr>
+					</table>
+				{% else %}
+					<h2 class="wrong">Wrong!</h2>
+				<a href="{% url 'million-game' game_id=game.pk %}">Play Again</a>
+				{% endif %}
+			</div>
+			<ol id="sidebar">
+				{% for question in questions %}
+				<li {% if forloop.counter0 == current %} class="current"{% endif %}>{{ question.dollars }}</li>
+				{% endfor %}
+			</ol>
+		</div>
+
+		</div>
+
+</body>

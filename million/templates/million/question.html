@@ -1,21 +1,35 @@
 <html>
 <head>
- <meta charset="utf-8"/>
- <title>{{ question.question }}</title>
+	<meta charset="utf-8"/>
+	<title>{{ question.question }}</title>
+	<link href="/static/style.css" rel="stylesheet">
 </head>
 <body>
 
-<h1>{{ question.question }}</h1>
-
-<table>
-	<tr>
-		<td>{{ question.answer_one }}</td>
-		<td>{{ question.answer_two }}</td>
-	</tr>
-	<tr>
-		<td>{{ question.answer_three }}</td>
-		<td>{{ question.answer_four }}</td>
-	</tr>
-</table>
-
+<div id="index">
+	<div id="content">
+		<div id="game">
+			<h1>{{ question.question }}</h1>
+			<form action="{% url 'million-play' game_id=game.pk %}" method="post">
+				{% csrf_token %}
+				<input type="hidden" name="question" value="{{ question.pk }}">
+				<table>
+					<tr>
+						<td><button type="submit" name="answer" value="one">A: {{ question.answer_one }}</button></td>
+						<td><button type="submit" name="answer" value="two">B: {{ question.answer_two }}</button></td>
+					</tr>
+					<tr>
+						<td><button type="submit" name="answer" value="three">C: {{ question.answer_three }}</button></td>
+						<td><button type="submit" name="answer" value="four">D: {{ question.answer_four }}</button></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<ol id="sidebar">
+			{% for question in questions %}
+			<li {% if forloop.counter0 == current %} class="current"{% endif %}>{{ question.dollars }}</li>
+			{% endfor %}
+		</ol>
+	</div>
+</div>
 </body>

@@ -8,7 +8,8 @@ body {
     margin:0 auto;
 }
 
-#index h1 {
+#index h1,
+#index h2{
     text-align:center;
     color:#fff;
     margin:50px;
@@ -21,7 +22,8 @@ body {
     text-shadow: 1px 1px 1px #000000;
 }
 
-#index a {
+#index a,
+#index button {
     font-weight: bold;
     text-shadow: 2px 2px 2px #000000;
     box-shadow: 0px 0px 5px #000000;
@@ -34,6 +36,9 @@ body {
     padding:10px;
     border-corner-shape: bevel;
     border-radius: 25px 25px 25px 25px;
+    background:none;
+    width:100%;
+    box-sizing: border-box;
 }
 
 #index a:hover {
@@ -43,4 +48,49 @@ body {
 
 #index li {
     list-style-type: none;
+}
+
+#content {
+    width:800px;
+    margin:0 auto;
+}
+
+#game {
+    width:500px;
+    float:left;
+}
+
+#sidebar {
+    width: 200px;
+    float: right;
+    border: 3px solid #FFCC00;
+    padding:20px;
+}
+
+#sidebar li {
+    list-style-type: decimal;
+    margin:2px 20px;
+    padding:2px;
+    color:#fff;
+}
+
+#sidebar li.current {
+    background: #FFCC00;
+}
+
+table {
+    width:100%;
+}
+
+table td {
+    width:50%;
+    padding:10px;
+}
+
+#index h2.correct {
+    color:#33CC00;
+}
+
+#index h2.wrong {
+    color:#ff0000;
 }
