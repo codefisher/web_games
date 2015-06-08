@@ -1,10 +1,16 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 
 class Game(models.Model):
-    name = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name = _('Game')
+        verbose_name_plural = _('Games')
+
+    name = models.CharField(max_length=50, verbose_name=_('Name'))
 
     def __str__(self):
         return self.name
@@ -14,23 +20,23 @@ class Game(models.Model):
 
 
 class Question(models.Model):
-    game = models.ForeignKey(Game)
-    question = models.CharField(max_length=255)
+    game = models.ForeignKey(Game, verbose_name=_('Game'))
+    question = models.CharField(max_length=255, verbose_name=_('Question'))
 
-    value = models.IntegerField()
+    value = models.IntegerField(verbose_name=_('Value'))
     created = models.DateTimeField(auto_now_add=True)
 
-    answer_one = models.CharField(max_length=50)
-    answer_one_correct = models.BooleanField()
+    answer_one = models.CharField(max_length=50, verbose_name=_('First Answer'))
+    answer_one_correct = models.BooleanField(verbose_name=_('First Answer is Correct'))
 
-    answer_two = models.CharField(max_length=50)
-    answer_two_correct = models.BooleanField()
+    answer_two = models.CharField(max_length=50, verbose_name=_('Second Answer'))
+    answer_two_correct = models.BooleanField(verbose_name=_('Second Answer is Correct'))
 
-    answer_three = models.CharField(max_length=50)
-    answer_three_correct = models.BooleanField()
+    answer_three = models.CharField(max_length=50, verbose_name=_('Third Answer'))
+    answer_three_correct = models.BooleanField(verbose_name=_('Third Answer is Correct'))
 
-    answer_four = models.CharField(max_length=50)
-    answer_four_correct = models.BooleanField()
+    answer_four = models.CharField(max_length=50, verbose_name=_('Fourth Answer'))
+    answer_four_correct = models.BooleanField(verbose_name=_('Fourth Answer is Correct'))
 
     def get_absolute_url(self):
         return reverse("million-question", kwargs={"question_id": self.pk})

@@ -1,3 +1,4 @@
+{% load i18n %}
 <html>
 <head>
 	<meta charset="utf-8"/>
@@ -5,26 +6,24 @@
 	<link href="/static/style.css" rel="stylesheet">
 </head>
 <body>
-
+	{% if correct %}
+		<audio autoplay="autoplay" controls>
+		  <source src="/static/NewQuestion.mp3" type="audio/mpeg">
+		</audio>
+	{% endif %}
 	<div id="index">
 		<h1>
-			Who Wants to </br> be a Millionaire?
+			{% trans "Who Wants to </br> be a Millionaire?" %}
 		</h1>
 		<div id="content">
 			<div id="game">
 				<h2>{{ game.name }}</h2>
 				{% if correct %}
-					<h2 class="correct">Correct!</h2>
-					<p>Is that your last answer?</p>
-					<table>
-						<tr>
-							<td><a href="{% url 'million-game' game_id=game.pk %}">Yes</a></td>
-							<td><a href="{% url 'million-play' game_id=game.pk %}">No</a></td>
-						</tr>
-					</table>
+					<h2 class="correct">{% trans "Correct" %}!</h2>
+					<a href="{% url 'million-play' game_id=game.pk %}">{% trans "Next Question" %}: {{ next_question.dollars }}</a>
 				{% else %}
-					<h2 class="wrong">Wrong!</h2>
-				<a href="{% url 'million-game' game_id=game.pk %}">Play Again</a>
+					<h2 class="wrong">{% trans "Wrong" %}!</h2>
+				<a href="{% url 'million-game' game_id=game.pk %}">{% trans "Play Again" %}</a>
 				{% endif %}
 			</div>
 			<ol id="sidebar">
@@ -34,6 +33,6 @@
 			</ol>
 		</div>
 
-		</div>
+	</div>
 
 </body>

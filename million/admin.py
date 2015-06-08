@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Game, Question
+from django.utils.translation import ugettext_lazy as _
 
 class GameAdmin(admin.ModelAdmin):
     pass
@@ -13,16 +14,16 @@ class QuestionAdmin(admin.ModelAdmin):
         (None, {
             'fields': ('game', 'question', 'value')
         }),
-        ('First Question', {
+        (_('First Question'), {
             'fields': ('answer_one', 'answer_one_correct',)
         }),
-        ('Second Question', {
+        (_('Second Question'), {
             'fields': ('answer_two', 'answer_two_correct',)
         }),
-        ('Third Question', {
+        (_('Third Question'), {
             'fields': ('answer_three', 'answer_three_correct',)
         }),
-        ('Fourth Question', {
+        (_('Fourth Question'), {
             'fields': ('answer_four', 'answer_four_correct',)
         }),
     )

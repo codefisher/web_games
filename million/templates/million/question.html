@@ -1,3 +1,4 @@
+{% load i18n %}
 <html>
 <head>
 	<meta charset="utf-8"/>
@@ -5,31 +6,66 @@
 	<link href="/static/style.css" rel="stylesheet">
 </head>
 <body>
-
-<div id="index">
-	<div id="content">
-		<div id="game">
-			<h1>{{ question.question }}</h1>
-			<form action="{% url 'million-play' game_id=game.pk %}" method="post">
-				{% csrf_token %}
-				<input type="hidden" name="question" value="{{ question.pk }}">
-				<table>
-					<tr>
-						<td><button type="submit" name="answer" value="one">A: {{ question.answer_one }}</button></td>
-						<td><button type="submit" name="answer" value="two">B: {{ question.answer_two }}</button></td>
-					</tr>
-					<tr>
-						<td><button type="submit" name="answer" value="three">C: {{ question.answer_three }}</button></td>
-						<td><button type="submit" name="answer" value="four">D: {{ question.answer_four }}</button></td>
-					</tr>
-				</table>
-			</form>
-		</div>
-		<ol id="sidebar">
-			{% for question in questions %}
-			<li {% if forloop.counter0 == current %} class="current"{% endif %}>{{ question.dollars }}</li>
-			{% endfor %}
-		</ol>
+	<audio autoplay="autoplay" controls>
+	  <source src="/static/ValueofNextQuestion.mp3" type="audio/mpeg">
+	</audio>
+	<div id="helps">
+		{% if audience %}
+			<a href="{% url 'million-question' question_id=question.pk %}audience/">
+				<img src="/static/group.png" width="64" height="64" />
+			</a>
+		{% endif %}
+		{% if call %}
+			<a href="{% url 'million-question' question_id=question.pk %}call/">
+				<img src="/static/phone.png" width="64" height="64" />
+			</a>
+		{% endif %}
+		{% if half %}
+			<a href="{% url 'million-question' question_id=question.pk %}half/">
+				50:50
+			</a>
+		{% endif %}
 	</div>
-</div>
+	<div id="index">
+		<div id="content">
+			<div id="game">
+				<h1>{{ question.question }}</h1>
+				<form action="{% url 'million-play' game_id=game.pk %}" method="post">
+					{% csrf_token %}
+					<input type="hidden" name="question" value="{{ question.pk }}">
+					<table>
+						<tr>
+							<td>
+								{% if not half_wrong or half_wrong == 'one' or question.answer_one_correct %}
+								<button type="submit" name="guess" value="one">A: {{ question.answer_one }}</button>
+								{% endif %}
+							</td>
+							<td>
+								{% if not half_wrong or half_wrong == 'two' or question.answer_two_correct %}
+								<button type="submit" name="guess" value="two">B: {{ question.answer_two }}</button>
+								{% endif %}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								{% if not half_wrong or half_wrong == 'three' or  question.answer_three_correct %}
+								<button type="submit" name="guess" value="three">C: {{ question.answer_three }}</button>
+								{% endif %}
+							</td>
+							<td>
+								{% if not half_wrong or half_wrong == 'four' or  question.answer_four_correct %}
+								<button type="submit" name="guess" value="four">D: {{ question.answer_four }}</button>
+								{% endif %}
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			<ol id="sidebar">
+				{% for question in questions %}
+				<li {% if forloop.counter0 == current %} class="current"{% endif %}>{{ question.dollars }}</li>
+				{% endfor %}
+			</ol>
+		</div>
+	</div>
 </body>

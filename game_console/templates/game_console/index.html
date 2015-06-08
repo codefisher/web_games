@@ -1,3 +1,4 @@
+{% load i18n %}
 <html>
 <head>
 	<meta charset="utf-8"/>
@@ -10,11 +11,17 @@
 		<h1>Game Console</h1>
 
 		<ul>
-			<li><a href="/million/">Who wants to be a millionaire.</a></li>
+			<li><a href="{% url 'million' %}">Who wants to be a millionaire.</a></li>
 		</ul>
 
 		<p>
 			<a href="/admin/">Administration</a>
 		</p>
+
 	</div>
+	<form action="{% url 'set_language' %}" method="post" style="width:180px;margin:0 auto;">
+		{% csrf_token %}
+		<button type="submit" name="language" value="en"><img src="/static/au.png"> English</button>
+		<button type="submit" name="language" value="it"><img src="/static/it.png"> Italiano</button>
+	</form>
 </body>

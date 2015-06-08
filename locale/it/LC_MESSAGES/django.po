@@ -1,0 +1,155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-08 21:13+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: million/admin.py:17
+msgid "First Question"
+msgstr "La Prima Domanda"
+
+#: million/admin.py:20
+msgid "Second Question"
+msgstr "La Seconda Domanda"
+
+#: million/admin.py:23
+msgid "Third Question"
+msgstr "La Terza Domanda"
+
+#: million/admin.py:26
+msgid "Fourth Question"
+msgstr "La Quarta Domanda"
+
+#: million/models.py:10 million/models.py:23
+msgid "Game"
+msgstr "Gioco"
+
+#: million/models.py:11
+msgid "Games"
+msgstr "Giochi"
+
+#: million/models.py:13
+msgid "Name"
+msgstr "Nome del Gioco"
+
+#: million/models.py:24
+msgid "Question"
+msgstr "Domanda"
+
+#: million/models.py:26
+msgid "Value"
+msgstr "Punteggio"
+
+#: million/models.py:29
+msgid "First Answer"
+msgstr "La Prima Risposta"
+
+#: million/models.py:30
+msgid "First Answer is Correct"
+msgstr "La Prima Risposte è corretta"
+
+#: million/models.py:32
+msgid "Second Answer"
+msgstr "La Seconda Risposta"
+
+#: million/models.py:33
+msgid "Second Answer is Correct"
+msgstr "La Seconda Risposte è corretta"
+
+#: million/models.py:35
+msgid "Third Answer"
+msgstr "La Terza Risposta"
+
+#: million/models.py:36
+msgid "Third Answer is Correct"
+msgstr "La Terza Risposte è corretta"
+
+#: million/models.py:38
+msgid "Fourth Answer"
+msgstr "La Quarta Risposta"
+
+#: million/models.py:39
+msgid "Fourth Answer is Correct"
+msgstr "La Quarta Risposte è corretta"
+
+#: million/templates/million/game.html:14
+#: million/templates/million/guess.html:11
+#: million/templates/million/index.html:14
+#: million/templates/million/result.html:16
+msgid "Who Wants to </br> be a Millionaire?"
+msgstr "Chi vuol'essere </br> il Milionario?"
+
+#: million/templates/million/game.html:19
+msgid "Play"
+msgstr "Gioca"
+
+#: million/templates/million/guess.html:16
+msgid "Answer"
+msgstr "La Risposta"
+
+#: million/templates/million/guess.html:18
+msgid "Is this your final answer?"
+msgstr "Questo è la tua risposta finale?"
+
+#: million/templates/million/guess.html:26
+msgid "Yes"
+msgstr "Si"
+
+#: million/templates/million/guess.html:32
+msgid "No"
+msgstr "No"
+
+#: million/templates/million/index.html:5
+#: million/templates/million/million.html:5
+msgid "Who Wants to be a Millionaire?"
+msgstr "Chi vuol'essere il Milionario?"
+
+#: million/templates/million/index.html:18
+msgid "Please Choose a Game to Play!"
+msgstr "Per favore scegli il Gioco!"
+
+#: million/templates/million/million.html:14
+msgid "You Are a Millionaire!"
+msgstr "Sei diventato il Milionario!"
+
+#: million/templates/million/million.html:18
+msgid "New Game"
+msgstr "Gioco nuovo"
+
+#: million/templates/million/result.html:22
+msgid "Correct"
+msgstr "Corretto"
+
+#: million/templates/million/result.html:23
+msgid "Next Question"
+msgstr "La domanda seguente"
+
+#: million/templates/million/result.html:25
+msgid "Wrong"
+msgstr "Sbagliato"
+
+#: million/templates/million/result.html:26
+msgid "Play Again"
+msgstr "Gioca di nuovo"
+
+#: web_games/settings.py:107
+msgid "Italian"
+msgstr ""
+
+#: web_games/settings.py:108
+msgid "English"
+msgstr ""

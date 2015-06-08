@@ -94,3 +94,23 @@ table td {
 #index h2.wrong {
     color:#ff0000;
 }
+
+#helps {
+    position:fixed;
+    left:10px;
+    top:60px;
+}
+
+#helps a {
+    display:block;
+    color:#fff;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    border: 3px solid #FFCC00;
+    margin:10px;
+    border-radius: 25px 25px 25px 25px;
+    height:64px;
+    width:64px;
+    line-height:64px;
+}

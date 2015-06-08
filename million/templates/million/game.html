@@ -1,3 +1,4 @@
+{% load i18n %}
 <html>
 <head>
 	<meta charset="utf-8"/>
@@ -5,15 +6,17 @@
 	<link href="/static/style.css" rel="stylesheet">
 </head>
 <body>
-
+	<audio autoplay="autoplay" controls>
+	  <source src="/static/LetsPlayTheme.mp3" type="audio/mpeg">
+	</audio>
 	<div id="index">
 		<h1>
-			Who Wants to </br> be a Millionaire?
+			{% trans "Who Wants to </br> be a Millionaire?" %}
 		</h1>
 		<div id="content">
 			<div id="game">
 				<h2>{{ game.name }}</h2>
-				<a href="{% url 'million-play' game_id=game.pk %}">Play</a>
+				<a href="{% url 'million-play' game_id=game.pk %}">{% trans "Play" %}</a>
 			</div>
 			<ol id="sidebar">
 				{% for question in questions %}
