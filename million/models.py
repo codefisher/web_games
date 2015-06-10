@@ -12,7 +12,7 @@ class Game(models.Model):
 
     name = models.CharField(max_length=50, verbose_name=_('Name'))
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
     def get_absolute_url(self):
@@ -45,5 +45,5 @@ class Question(models.Model):
     def dollars(self):
         return "${:,}".format(self.value)
 
-    def __str__(self):
-        return "{}: {} ${:,}".format(self.game, self.question, self.value)
+    def __unicode__(self):
+        return u"{}: {} ${:,}".format(self.game, self.question, self.value)

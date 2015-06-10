@@ -74,6 +74,10 @@ body {
     color:#fff;
 }
 
+#sidebar li.threshold {
+    color:#FFCC00;
+}
+
 #sidebar li.current {
     background: #FFCC00;
 }

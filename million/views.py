@@ -25,6 +25,16 @@ def game(request, game_id):
         "questions": questions,
     })
 
+def retire(request, game_id):
+    game = get_object_or_404(Game, pk=game_id)
+    questions = Question.objects.filter(game=game).order_by("value")
+    prize = questions[request.session['question'] - 1].dollars()
+    return render(request, "million/quit.html", {
+        "game": game,
+        "questions": questions,
+        "prize": prize,
+    })
+
 def play(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     questions = Question.objects.filter(game=game).order_by("value")
@@ -45,14 +55,19 @@ def play(request, game_id):
                 or (answer == 'two' and question.answer_two_correct)
                 or (answer == 'three' and question.answer_three_correct)
                 or (answer == 'four' and question.answer_four_correct))
+            prize = None
             if correct:
                 request.session['question'] += 1
             else:
+                index = request.session['question'] + 1
+                if index and index % 5:
+                    prize = questions[(index // 5 * 5) - 1].dollars()
                 request.session['question'] = 0
             if request.session['question'] >= len(questions):
                 return render(request, "million/million.html", {})
             return render(request, "million/result.html", {
                 "game": game,
+                "prize": prize,
                 "questions": questions,
                 "question": question,
                 "next_question": questions[request.session['question']],

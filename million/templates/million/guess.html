@@ -38,7 +38,7 @@
 			</div>
 			<ol id="sidebar">
 				{% for question in questions %}
-				<li {% if forloop.counter0 == current %} class="current"{% endif %}>{{ question.dollars }}</li>
+				<li{% if forloop.counter0 == current %} class="current"{% elif forloop.counter|divisibleby:"5" %} class="threshold"{% endif %}>{{ question.dollars }}</li>
 				{% endfor %}
 			</ol>
 		</div>

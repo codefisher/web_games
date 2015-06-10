@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 21:13+0200\n"
+"POT-Creation-Date: 2015-06-10 14:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,6 +89,7 @@ msgstr "La Quarta Risposte è corretta"
 #: million/templates/million/game.html:14
 #: million/templates/million/guess.html:11
 #: million/templates/million/index.html:14
+#: million/templates/million/quit.html:15
 #: million/templates/million/result.html:16
 msgid "Who Wants to </br> be a Millionaire?"
 msgstr "Chi vuol'essere </br> il Milionario?"
@@ -115,6 +116,7 @@ msgstr "No"
 
 #: million/templates/million/index.html:5
 #: million/templates/million/million.html:5
+#: million/templates/million/quit.html:5
 msgid "Who Wants to be a Millionaire?"
 msgstr "Chi vuol'essere il Milionario?"
 
@@ -127,8 +129,14 @@ msgid "You Are a Millionaire!"
 msgstr "Sei diventato il Milionario!"
 
 #: million/templates/million/million.html:18
+#: million/templates/million/quit.html:21
 msgid "New Game"
 msgstr "Gioco nuovo"
+
+#: million/templates/million/quit.html:18
+#: million/templates/million/result.html:27
+msgid "You won"
+msgstr ""
 
 #: million/templates/million/result.html:22
 msgid "Correct"
@@ -142,14 +150,6 @@ msgstr "La domanda seguente"
 msgid "Wrong"
 msgstr "Sbagliato"
 
-#: million/templates/million/result.html:26
+#: million/templates/million/result.html:29
 msgid "Play Again"
 msgstr "Gioca di nuovo"
-
-#: web_games/settings.py:107
-msgid "Italian"
-msgstr ""
-
-#: web_games/settings.py:108
-msgid "English"
-msgstr ""

@@ -60,10 +60,13 @@
 						</tr>
 					</table>
 				</form>
+				{% if current %}
+					<h2><a href="{% url 'million-retire' game_id=game.id %}">Retire</a></h2>
+				{% endif %}
 			</div>
 			<ol id="sidebar">
 				{% for question in questions %}
-				<li {% if forloop.counter0 == current %} class="current"{% endif %}>{{ question.dollars }}</li>
+				<li{% if forloop.counter0 == current %} class="current"{% elif forloop.counter|divisibleby:"5" %} class="threshold"{% endif %}>{{ question.dollars }}</li>
 				{% endfor %}
 			</ol>
 		</div>

@@ -1,0 +1,24 @@
+{% load i18n %}
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>{% trans "Who Wants to be a Millionaire?" %}</title>
+	<link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+	<audio autoplay="autoplay" loop="loop" controls>
+	  <source src="/static/WhoWantstoBeaMillionaire.mp3" type="audio/mpeg">
+	</audio>
+	<div id="index">
+
+		<h1>
+			{% trans "Who Wants to </br> be a Millionaire?" %}
+		</h1>
+
+		<h2>{% trans "You won" %} {{ prize }}!</h2>
+
+		<p>
+			<a href="{% url 'million' %}">{% trans "New Game" %}</a>
+		</p>
+	</div>
+</body>
