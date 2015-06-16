@@ -59,8 +59,8 @@ def play(request, game_id):
             if correct:
                 request.session['question'] += 1
             else:
-                index = request.session['question'] + 1
-                if index and index % 5:
+                index = request.session['question']
+                if index // 5:
                     prize = questions[(index // 5 * 5) - 1].dollars()
                 request.session['question'] = 0
             if request.session['question'] >= len(questions):
