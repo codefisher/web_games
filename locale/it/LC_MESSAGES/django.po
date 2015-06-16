@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-10 14:14+0200\n"
+"POT-Creation-Date: 2015-06-16 20:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -133,10 +133,14 @@ msgstr "Sei diventato il Milionario!"
 msgid "New Game"
 msgstr "Gioco nuovo"
 
+#: million/templates/million/question.html:64
+msgid "Resign"
+msgstr "Resigna"
+
 #: million/templates/million/quit.html:18
 #: million/templates/million/result.html:27
 msgid "You won"
-msgstr ""
+msgstr "Hai vinto"
 
 #: million/templates/million/result.html:22
 msgid "Correct"
