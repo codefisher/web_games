@@ -131,11 +131,11 @@ msgstr "Sei diventato il Milionario!"
 #: million/templates/million/million.html:18
 #: million/templates/million/quit.html:21
 msgid "New Game"
-msgstr "Gioco nuovo"
+msgstr "Gioca di nuovo"
 
 #: million/templates/million/question.html:64
 msgid "Resign"
-msgstr "Resigna"
+msgstr "Interrompi"
 
 #: million/templates/million/quit.html:18
 #: million/templates/million/result.html:27
