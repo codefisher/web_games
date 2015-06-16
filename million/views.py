@@ -55,7 +55,7 @@ def play(request, game_id):
                 or (answer == 'two' and question.answer_two_correct)
                 or (answer == 'three' and question.answer_three_correct)
                 or (answer == 'four' and question.answer_four_correct))
-            prize = None
+            prize = "$0"
             if correct:
                 request.session['question'] += 1
             else:
@@ -64,7 +64,9 @@ def play(request, game_id):
                     prize = questions[(index // 5 * 5) - 1].dollars()
                 request.session['question'] = 0
             if request.session['question'] >= len(questions):
-                return render(request, "million/million.html", {})
+                return render(request, "million/million.html", {
+                    "prize": questions[len(questions)-1].dollars()
+                })
             return render(request, "million/result.html", {
                 "game": game,
                 "prize": prize,

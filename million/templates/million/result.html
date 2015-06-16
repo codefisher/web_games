@@ -23,9 +23,7 @@
 					<a href="{% url 'million-play' game_id=game.pk %}">{% trans "Next Question" %}: {{ next_question.dollars }}</a>
 				{% else %}
 					<h2 class="wrong">{% trans "Wrong" %}!</h2>
-					{% if prize %}
-						<h2>{% trans "You won" %} {{ prize }}!</h2>
-					{% endif %}
+				    <h2>{% trans "You won" %} {{ prize }}!</h2>
 					<a href="{% url 'million-game' game_id=game.pk %}">{% trans "Play Again" %}</a>
 				{% endif %}
 			</div>
