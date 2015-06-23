@@ -1,0 +1,37 @@
+{% load i18n %}
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>{% trans "Jeopardy" %}</title>
+	<link href="/static/style.css" rel="stylesheet">
+	<link href="/static/jeopardy.css" rel="stylesheet">
+	<script src="/static/jquery-2.1.1.js" ></script>
+</head>
+<body>
+	<audio autoplay="autoplay" controls>
+	  <source src="/static/RegisWalksIn.mp3" type="audio/mpeg">
+	</audio>
+	<div id="index">
+		<h1>
+			{% trans "Jeopardy" %}
+		</h1>
+		<table id="game-table">
+			<thead>
+				<tr>
+					{% for topic in topics %}
+						<td>{{ topic.name }}</td>
+					{% endfor %}
+				</tr>
+			</thead>
+			<tbody>
+				{% for point in points %}
+				<tr>
+					{% for topic in topics %}
+						<td><a href="{% url 'jeopardy-question' game_id=game.pk topic_id=topic.pk point_id=point.pk %}">{{ point }}</a></td>
+					{% endfor %}
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</body>

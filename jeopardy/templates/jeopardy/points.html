@@ -1,0 +1,40 @@
+{% load i18n %}
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>{% trans "Jeopardy" %}</title>
+	<link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+	<audio autoplay="autoplay" controls>
+	  <source src="/static/RegisWalksIn.mp3" type="audio/mpeg">
+	</audio>
+	<div id="index">
+		<h1>
+			{{ question.question }}
+		</h1>
+		{% if question.picture %}
+			<div class="center">
+				<img src="{{ question.picture.url }}" />
+			</div>
+		{% endif %}
+		<h2 class="correct">
+			{% trans "Answer" %}: {{ question.answer }}
+		</h2>
+		<form method="post" action="">
+			{% csrf_token %}
+			<p>
+				{% trans "Who won these points?" %}
+			</p>
+			<ul>
+				{% for player, points in players %}
+					<li><label><input type="radio" name="player" value="{{ player}}">{{ player}}</label></li>
+				{% endfor %}
+			</ul>
+			<div class="right">
+				<input type="submit" value="Done">
+			</div>
+		</form>
+		</ul>
+	</div>
+</body>

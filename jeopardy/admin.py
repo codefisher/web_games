@@ -34,7 +34,7 @@ class QuestionForm(forms.ModelForm):
 
     class Meta:
         model = Question
-        fields = ['game', 'points', 'topic', 'question', 'answer', 'bonus']
+        fields = ['game', 'points', 'topic', 'question', 'picture', 'answer', 'bonus']
 
     def __init__(self, *args, **kwargs):
         super(QuestionForm, self).__init__(*args, **kwargs)

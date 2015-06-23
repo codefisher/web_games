@@ -1,0 +1,41 @@
+{% load i18n %}
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>{% trans "Jeopardy" %}</title>
+	<link href="/static/style.css" rel="stylesheet">
+	<script src="/static/jquery-2.1.1.js" ></script>
+</head>
+<body>
+	<audio autoplay="autoplay" controls>
+	  <source src="/static/RegisWalksIn.mp3" type="audio/mpeg">
+	</audio>
+	<div id="index">
+		<h1>
+			{% trans "Jeopardy" %}
+		</h1>
+
+		<p>
+			{% trans "Enter Player Names." %}
+		</p>
+		<script>
+			function addName() {
+				var list = $('#name-list');
+				list.append('<li><label>Name ' + ($('#name-list li').length + 1)
+					+ ': <input type="text" name="name" /></label></li>');
+			}
+		</script>
+		<form action="" method="post">
+			{% csrf_token %}
+			<ul id="name-list">
+				{% for number in numbers %}
+				<li><label>Name {{number|add:1}}: <input type="text" name="name" /></label></li>
+				{% endfor %}
+			</ul>
+			<div class="right">
+				<input type="button" onclick="addName()" value="{% trans "Add" %}" />
+				<input type="submit" value="{% trans "Play" %}" />
+			</div>
+		</form>
+	</div>
+</body>

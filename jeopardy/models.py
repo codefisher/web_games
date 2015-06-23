@@ -3,6 +3,9 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
+def question_image_path(instance, filename):
+    return ("jeopardy/{0}/{1}".format(time.strftime("%y"), filename.lower()))
+
 class Game(models.Model):
 
     class Meta:
@@ -13,6 +16,9 @@ class Game(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("jeopardy-game", kwargs={"game_id": self.pk})
 
 class BonusQuestion(models.Model):
 
@@ -52,9 +58,6 @@ class Topic(models.Model):
 
     def __unicode__(self):
         return self.name
-
-def question_image_path(instance, filename):
-    return ("million/{0}/{1}".format(time.strftime("%y"), filename.lower()))
 
 class Question(models.Model):
 
