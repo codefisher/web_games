@@ -118,3 +118,8 @@ table td {
     width:64px;
     line-height:64px;
 }
+
+.center {
+    text-align:center;
+    margin:0 auto;
+}

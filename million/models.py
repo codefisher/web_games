@@ -1,3 +1,4 @@
+import time
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
@@ -18,10 +19,13 @@ class Game(models.Model):
     def get_absolute_url(self):
         return reverse("million-game", kwargs={"game_id": self.pk})
 
+def question_image_path(instance, filename):
+    return ("million/{0}/{1}".format(time.strftime("%y"), filename.lower()))
 
 class Question(models.Model):
     game = models.ForeignKey(Game, verbose_name=_('Game'))
     question = models.CharField(max_length=255, verbose_name=_('Question'))
+    picture = models.ImageField(null=True, blank=True, verbose_name=_('Picture'), upload_to=question_image_path)
 
     value = models.IntegerField(verbose_name=_('Value'))
     created = models.DateTimeField(auto_now_add=True)

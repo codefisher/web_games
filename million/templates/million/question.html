@@ -29,6 +29,11 @@
 	<div id="index">
 		<div id="content">
 			<div id="game">
+				{% if question.picture %}
+					<div class="center">
+						<img src="{{ question.picture.url }}" />
+					</div>
+				{% endif %}
 				<h1>{{ question.question }}</h1>
 				<form action="{% url 'million-play' game_id=game.pk %}" method="post">
 					{% csrf_token %}

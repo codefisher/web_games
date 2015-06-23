@@ -12,7 +12,7 @@ class QuestionAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            'fields': ('game', 'question', 'value')
+            'fields': ('game', 'question', 'picture', 'value')
         }),
         (_('First Question'), {
             'fields': ('answer_one', 'answer_one_correct',)
