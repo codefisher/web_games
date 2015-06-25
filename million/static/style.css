@@ -1,6 +1,7 @@
 body {
     background-image: url("background.jpg");
     background-size: 100%;
+    color:#ffffff;
 }
 
 #index {
@@ -122,4 +123,8 @@ table td {
 .center {
     text-align:center;
     margin:0 auto;
+}
+
+.right {
+    text-align: right;
 }

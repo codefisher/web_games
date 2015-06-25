@@ -16,7 +16,9 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from million import urls as million_urls
+from jeopardy import urls as jeopardy_urls
 from game_console.views import index
+from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 
 admin.site.site_header = 'Game Console'
@@ -25,5 +27,9 @@ urlpatterns = [
     url(r'^$', index),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^million/', include(million_urls)),
+    url(r'^jeopardy/', include(jeopardy_urls)),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 ]
+
+from django.conf.urls.static import static
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
