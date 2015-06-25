@@ -10,6 +10,9 @@
 	  <source src="/static/RegisWalksIn.mp3" type="audio/mpeg">
 	</audio>
 	<div id="index">
+		{% if topic and point %}
+			<p class="center"> {{ topic.name }} : {{ point.value }}</p>
+		{% endif %}
 		<h1>
 			{{ question.question }}
 		</h1>
@@ -21,8 +24,12 @@
 		<h2 class="correct">
 			{% trans "Answer" %}: {{ question.answer }}
 		</h2>
-		<form method="post" action="">
+		<form method="post" action="{% url "jeopardy-game-points" game_id=game.pk question_id=question.pk %}">
 			{% csrf_token %}
+			<input type="hidden" name="question" value="{{ question.pk }}" />
+			{% if bonus %}
+				<input type="hidden" name="bonus" value="yes" />
+			{% endif %}
 			<p>
 				{% trans "Who won these points?" %}
 			</p>

@@ -13,7 +13,6 @@
 		<h1>
 			{% trans "Jeopardy" %}
 		</h1>
-
 		<p>
 			{% trans "Please Choose a Game to Play!" %}
 		</p>
@@ -22,10 +21,5 @@
 				<li><a href="{{ game.get_absolute_url }}">{{ game.name }}</a></li>
 			{% endfor %}
 		</ul>
-		<ol id="sidebar">
-			{% for player, points in players %}
-			<li>{{ player }} - {{ points }}</li>
-			{% endfor %}
-		</ol>
 	</div>
 </body>

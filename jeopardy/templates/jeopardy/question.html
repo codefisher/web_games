@@ -10,6 +10,12 @@
 	  <source src="/static/RegisWalksIn.mp3" type="audio/mpeg">
 	</audio>
 	<div id="index">
+		{% if topic and point %}
+			<p class="center"> {{ topic.name }} : {{ point.value }}</p>
+		{% endif %}
+		{% if bonus %}
+			<h2>{% trans "Bonus Question" %}</h2>
+		{% endif %}
 		<h1>
 			{{ question.question }}
 		</h1>
@@ -20,6 +26,7 @@
 		{% endif %}
 		<form action="" method="post">
 			{% csrf_token %}
+			<input type="hidden" name="question" value="{{ question.pk }}" />
 			<table>
 				<tr>
 			<td><button type="submit" name="thumbs_up"><img src="/static/thumbs_up.png"></button></td>

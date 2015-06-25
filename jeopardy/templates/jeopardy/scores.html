@@ -12,34 +12,15 @@
 	<!--<audio autoplay="autoplay" controls>
 	  <source src="/static/RegisWalksIn.mp3" type="audio/mpeg">
 	</audio>-->
-	<ol id="sidebar">
-		{% for player, points in players %}
-		<li>{{ player }} - {{ points }}</li>
-		{% endfor %}
-	</ol>
 	<div id="index">
 		<h1>
 			{% trans "Jeopardy" %}
 		</h1>
-		<table id="game-table">
-			<thead>
-				<tr>
-					{% for topic in topics %}
-						<td>{{ topic.name }}</td>
-					{% endfor %}
-				</tr>
-			</thead>
-			<tbody>
-				{% for point in points %}
-				<tr>
-					{% for topic in topics %}
-						<td>
-							{% jeopardy_game_cell %}
-						</td>
-					{% endfor %}
-				</tr>
-				{% endfor %}
-			</tbody>
-		</table>
+		{% for player, points in players %}
+		<li>{{ player }} - {{ points }}</li>
+		{% endfor %}
+		<p>
+			<a href="{% url 'jeopardy' %}">{% trans "New Game"%}</a>
+		</p>
 	</div>
 </body>

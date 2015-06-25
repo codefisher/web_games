@@ -1,0 +1,5 @@
+{% if done %}
+	<span>{{ point }}</span>
+{% else %}
+	<a href="{% url 'jeopardy-question' game_id=game.pk topic_id=topic.pk point_id=point.pk %}">{{ point }}</a>
+{% endif %}

@@ -80,4 +80,3 @@ class Question(models.Model):
         if self.question:
             return self.question
         return unicode(_(u'Question'))
-

@@ -4,18 +4,31 @@ from .models import BonusQuestion, Game, Points, Question, Topic
 
 class TopicInline(admin.TabularInline):
     model = Topic
-    min_num = 5
-    extra = 0
+
+    def get_extra(self, request, obj=None, **kwargs):
+        extra = 5
+        if obj:
+            return extra - obj.topic.count()
+        return extra
+
 
 class PointsInline(admin.TabularInline):
     model = Points
-    min_num = 5
-    extra = 0
+
+    def get_extra(self, request, obj=None, **kwargs):
+        extra = 5
+        if obj:
+            return extra - obj.points.count()
+        return extra
 
 class BonusQuestionInline(admin.TabularInline):
     model = BonusQuestion
-    min_num = 2
-    extra = 0
+
+    def get_extra(self, request, obj=None, **kwargs):
+        extra = 2
+        if obj:
+            return extra - obj.bonus_question.count()
+        return extra
 
 class GameAdmin(admin.ModelAdmin):
     list_display = ["name"]
