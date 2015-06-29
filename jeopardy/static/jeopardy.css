@@ -1,4 +1,5 @@
-#game-table td {
+#game-table td,
+#scores td {
     border: 3px solid #ffffff;
     width: 20%;
     text-align: center;
@@ -20,6 +21,23 @@
     margin:0;
 }
 
-#game-table {
+#game-table, #scores {
     border-collapse: collapse;
+}
+
+#topic-value {
+    font-size:1.5em;
+    font-weight:bold;
+}
+
+#topic-value .bonus {
+    color:#FFFF00;
+}
+
+#time-box {
+    font-size:1.5em;
+}
+
+#time-box.low {
+    color:#ff0000;
 }

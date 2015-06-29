@@ -4,14 +4,22 @@
 	<meta charset="utf-8"/>
 	<title>{% trans "Jeopardy" %}</title>
 	<link href="/static/style.css" rel="stylesheet">
+	<link href="/static/jeopardy.css" rel="stylesheet">
 </head>
 <body>
 	<audio autoplay="autoplay" controls>
-	  <source src="/static/RegisWalksIn.mp3" type="audio/mpeg">
+	  <source src="/static/correct-jeopardy-answer.mp3" type="audio/mpeg">
 	</audio>
 	<div id="index">
 		{% if topic and point %}
-			<p class="center"> {{ topic.name }} : {{ point.value }}</p>
+			<p class="center" id="topic-value"> {{ topic.name }} : {{ point.value }}
+			{% if question.bonus %}
+				<span class="bonus">+ {{ question.bonus }} {% trans "Bonus Points" %}!</span>
+			{% endif %}
+			</p>
+		{% endif %}
+		{% if bonus %}
+			<h2>{% trans "Bonus Question" %} : {{ question.value }}</h2>
 		{% endif %}
 		<h1>
 			{{ question.question }}
@@ -22,8 +30,14 @@
 			</div>
 		{% endif %}
 		<h2 class="correct">
+			{% trans "Correct" %} <br />
 			{% trans "Answer" %}: {{ question.answer }}
 		</h2>
+		{% if question.correct_picture %}
+			<div class="center">
+				<img src="{{ question.correct_picture.url }}" />
+			</div>
+		{% endif %}
 		<form method="post" action="{% url "jeopardy-game-points" game_id=game.pk question_id=question.pk %}">
 			{% csrf_token %}
 			<input type="hidden" name="question" value="{{ question.pk }}" />
@@ -35,13 +49,12 @@
 			</p>
 			<ul>
 				{% for player, points in players %}
-					<li><label><input type="radio" name="player" value="{{ player}}">{{ player}}</label></li>
+					<li><label><input type="radio" name="player" value="{{ player}}" />{{ player}}</label></li>
 				{% endfor %}
 			</ul>
 			<div class="right">
 				<input type="submit" value="Done">
 			</div>
 		</form>
-		</ul>
 	</div>
 </body>

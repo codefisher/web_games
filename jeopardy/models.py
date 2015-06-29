@@ -13,6 +13,10 @@ class Game(models.Model):
         verbose_name_plural = _('Games')
 
     name = models.CharField(max_length=50, verbose_name=_('Name'))
+    win_picture = models.ImageField(
+        null=True, blank=True, verbose_name=_('Picture At Victory'),
+        upload_to=question_image_path)
+    hidden = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name
@@ -23,8 +27,8 @@ class Game(models.Model):
 class BonusQuestion(models.Model):
 
     class Meta:
-        verbose_name = _('Bonus Question')
-        verbose_name_plural = _('Bonus Question')
+        verbose_name = _('Final Question')
+        verbose_name_plural = _('Final Question')
 
     game = models.ForeignKey(
         Game, verbose_name=_('Game'), related_name="bonus_question")
@@ -34,6 +38,13 @@ class BonusQuestion(models.Model):
         upload_to=question_image_path)
     answer = models.CharField(max_length=255, verbose_name=_('Answer'))
     value = models.IntegerField()
+
+    correct_picture = models.ImageField(
+        null=True, blank=True, verbose_name=_('Picture When Correct'),
+        upload_to=question_image_path)
+    wrong_picture = models.ImageField(
+        null=True, blank=True, verbose_name=_('Picture When Wrong'),
+        upload_to=question_image_path)
 
     def __unicode__(self):
         return self.question
@@ -75,6 +86,13 @@ class Question(models.Model):
     answer = models.CharField(
         max_length=255, blank=True, null=True, verbose_name=_('Answer'))
     bonus = models.IntegerField(default=0)
+
+    correct_picture = models.ImageField(
+        null=True, blank=True, verbose_name=_('Picture When Correct'),
+        upload_to=question_image_path)
+    wrong_picture = models.ImageField(
+        null=True, blank=True, verbose_name=_('Picture When Wrong'),
+        upload_to=question_image_path)
 
     def __unicode__(self):
         if self.question:

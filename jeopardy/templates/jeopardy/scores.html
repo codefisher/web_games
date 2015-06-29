@@ -9,16 +9,23 @@
 	<script src="/static/jquery-2.1.1.js" ></script>
 </head>
 <body>
-	<!--<audio autoplay="autoplay" controls>
-	  <source src="/static/RegisWalksIn.mp3" type="audio/mpeg">
-	</audio>-->
+	<audio autoplay="autoplay" controls>
+	  <source src="/static/ride-of-the-valkyries.mp3" type="audio/mpeg">
+	</audio>
 	<div id="index">
 		<h1>
 			{% trans "Jeopardy" %}
 		</h1>
+		{% if game.win_picture %}
+			<div class="center">
+				<img src="{{ game.win_picture.url }}" />
+			</div>
+		{% endif %}
+		<table id="scores">
 		{% for player, points in players %}
-		<li>{{ player }} - {{ points }}</li>
+			<tr><td>{{ player }}</td><td>{{ points }}</td></tr>
 		{% endfor %}
+		</table>
 		<p>
 			<a href="{% url 'jeopardy' %}">{% trans "New Game"%}</a>
 		</p>

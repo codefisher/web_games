@@ -1,0 +1,43 @@
+{% load i18n %}
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>{% trans "Jeopardy" %}</title>
+	<link href="/static/style.css" rel="stylesheet">
+	<link href="/static/jeopardy.css" rel="stylesheet">
+</head>
+<body>
+	<audio autoplay="autoplay" controls>
+	  <source src="/static/wrong-jepardy-question.mp3" type="audio/mpeg">
+	</audio>
+	<div id="index">
+		{% if topic and point %}
+			<p class="center" id="topic-value"> {{ topic.name }} : {{ point.value }}
+			{% if question.bonus %}
+				<span class="bonus">+ {{ question.bonus }} {% trans "Bonus Points" %}!</span>
+			{% endif %}
+			</p>		{% endif %}
+		<h1>
+			{{ question.question }}
+		</h1>
+		{% if question.picture %}
+			<div class="center">
+				<img src="{{ question.picture.url }}" />
+			</div>
+		{% endif %}
+		<h2 class="wrong">
+			{% trans "Wrong" %} <br />
+			{% trans "Answer" %}: {{ question.answer }}
+		</h2>
+		{% if question.wrong_picture %}
+			<div class="center">
+				<img src="{{ question.wrong_picture.url }}" />
+			</div>
+		{% endif %}
+		{% if bonus %}
+			<a href="{% url "jeopardy-scores" game_id=game.pk %}">{% trans "Go to the Score Board" %}!</a>
+		{% else %}
+			<a href="{% url "jeopardy-game" game_id=game.pk %}">{% trans "Next Question" %}</a>
+		{% endif %}
+	</div>
+</body>
