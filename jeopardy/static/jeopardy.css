@@ -1,14 +1,26 @@
+
+
 #game-table td,
 #scores td {
     border: 3px solid #ffffff;
     width: 20%;
     text-align: center;
+    font-size:30px;
+}
+
+#game-table td a {
+    font-size:30px;
 }
 
 #game-table tbody td {
     padding:5px;
     color:#aaaaaa;
     line-height:40px;
+}
+
+#game-table thead td {
+    font-weight:bold;
+    color:#FFFF00;
 }
 
 #game-table td a {

@@ -84,12 +84,17 @@ class ResultAdmin(admin.ModelAdmin):
 admin.site.register(Result, ResultAdmin)
 
 class PlayerAdmin(admin.ModelAdmin):
-    list_display = ['name', 'point_total']
+    list_display = ['name']
     search_fields = ['name']
     list_display_links = None
 
     def get_queryset(self, request):
         qs = super(PlayerAdmin, self).get_queryset(request)
+        #qs.query = '''SELECT "jeopardy_player"."id", "jeopardy_player"."name", "jeopardy_player"."points", "jeopardy_player"."result_id", SUM("jeopardy_player"."points") AS "total" FROM "jeopardy_player" GROUP BY "jeopardy_player"."id", "jeopardy_player"."name", "jeopardy_player"."points", "jeopardy_player"."result_id"'''
+        return qs
+        #qs = qs.annotate(total=Sum('points'))
+        #qs = qs.extra(where=["TRUE GROUP BY 'name'"])
+        raise ValueError(qs.query)
         keys = [Player.objects.filter(name=item['name'])[0].pk for item in qs.values('name').distinct()]
         return qs.filter(pk__in=keys)
         #return Player.objects.raw("SELECT name, SUM(points) as points FROM jeopardy_player GROUP BY name")
