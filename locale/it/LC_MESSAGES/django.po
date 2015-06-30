@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-16 20:17+0200\n"
+"POT-Creation-Date: 2015-06-29 09:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,165 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: game_console/templates/game_console/index.html:5
+#: game_console/templates/game_console/index.html:11
+msgid "Game Console"
+msgstr ""
+
+#: game_console/templates/game_console/index.html:14
+#: million/templates/million/index.html:5
+#: million/templates/million/million.html:5
+#: million/templates/million/quit.html:5
+msgid "Who Wants to be a Millionaire?"
+msgstr "Chi vuol'essere il Milionario?"
+
+#: game_console/templates/game_console/index.html:15
+#: jeopardy/templates/jeopardy/game.html:6
+#: jeopardy/templates/jeopardy/game.html:22
+#: jeopardy/templates/jeopardy/index.html:5
+#: jeopardy/templates/jeopardy/index.html:12
+#: jeopardy/templates/jeopardy/no_question.html:5
+#: jeopardy/templates/jeopardy/points.html:5
+#: jeopardy/templates/jeopardy/question.html:5
+#: jeopardy/templates/jeopardy/scores.html:6
+#: jeopardy/templates/jeopardy/scores.html:17
+#: jeopardy/templates/jeopardy/signup.html:5
+#: jeopardy/templates/jeopardy/signup.html:13
+#: jeopardy/templates/jeopardy/wrong.html:5
+msgid "Jeopardy"
+msgstr ""
+
+#: game_console/templates/game_console/index.html:19
+msgid "Administration"
+msgstr ""
+
+#: jeopardy/models.py:12 jeopardy/models.py:34 jeopardy/models.py:59
+#: jeopardy/models.py:67 jeopardy/models.py:76 million/models.py:11
+#: million/models.py:26
+msgid "Game"
+msgstr "Gioco"
+
+#: jeopardy/models.py:13 million/models.py:12
+msgid "Games"
+msgstr "Giochi"
+
+#: jeopardy/models.py:15 jeopardy/models.py:68 million/models.py:14
+msgid "Name"
+msgstr "Nome del Gioco"
+
+#: jeopardy/models.py:17
+msgid "Picture At Victory"
+msgstr ""
+
+#: jeopardy/models.py:30 jeopardy/models.py:31
+#, fuzzy
+#| msgid "First Question"
+msgid "Final Question"
+msgstr "La Prima Domanda"
+
+#: jeopardy/models.py:35 jeopardy/models.py:82 jeopardy/models.py:100
+#: million/models.py:27
+msgid "Question"
+msgstr "Domanda"
+
+#: jeopardy/models.py:37 jeopardy/models.py:84 million/models.py:28
+msgid "Picture"
+msgstr ""
+
+#: jeopardy/models.py:39 jeopardy/models.py:87
+#: jeopardy/templates/jeopardy/points.html:34
+#: jeopardy/templates/jeopardy/wrong.html:30
+#: million/templates/million/guess.html:16
+msgid "Answer"
+msgstr "La Risposta"
+
+#: jeopardy/models.py:43 jeopardy/models.py:91
+msgid "Picture When Correct"
+msgstr ""
+
+#: jeopardy/models.py:46 jeopardy/models.py:94
+msgid "Picture When Wrong"
+msgstr ""
+
+#: jeopardy/models.py:55 jeopardy/models.py:56 jeopardy/models.py:78
+msgid "Points"
+msgstr ""
+
+#: jeopardy/models.py:80
+msgid "Topic"
+msgstr ""
+
+#: jeopardy/templates/jeopardy/game.html:45
+#: jeopardy/templates/jeopardy/points.html:22
+#: jeopardy/templates/jeopardy/question.html:25
+#, fuzzy
+#| msgid "Second Question"
+msgid "Bonus Question"
+msgstr "La Seconda Domanda"
+
+#: jeopardy/templates/jeopardy/index.html:15
+#: million/templates/million/index.html:18
+msgid "Please Choose a Game to Play!"
+msgstr "Per favore scegli il Gioco!"
+
+#: jeopardy/templates/jeopardy/no_question.html:15
+msgid "This question has not been created!"
+msgstr ""
+
+#: jeopardy/templates/jeopardy/points.html:17
+#: jeopardy/templates/jeopardy/question.html:20
+#: jeopardy/templates/jeopardy/wrong.html:17
+msgid "Bonus Points"
+msgstr ""
+
+#: jeopardy/templates/jeopardy/points.html:33
+#: million/templates/million/result.html:22
+msgid "Correct"
+msgstr "Corretto"
+
+#: jeopardy/templates/jeopardy/points.html:48
+msgid "Who won these points?"
+msgstr ""
+
+#: jeopardy/templates/jeopardy/question.html:53
+#, fuzzy
+#| msgid "Second Answer"
+msgid "Seconds"
+msgstr "La Seconda Risposta"
+
+#: jeopardy/templates/jeopardy/scores.html:30
+#: million/templates/million/million.html:20
+#: million/templates/million/quit.html:21
+msgid "New Game"
+msgstr "Gioca di nuovo"
+
+#: jeopardy/templates/jeopardy/signup.html:17
+msgid "Enter Player Names."
+msgstr ""
+
+#: jeopardy/templates/jeopardy/signup.html:34
+msgid "Add"
+msgstr ""
+
+#: jeopardy/templates/jeopardy/signup.html:35
+#: million/templates/million/game.html:19
+msgid "Play"
+msgstr "Gioca"
+
+#: jeopardy/templates/jeopardy/wrong.html:29
+#: million/templates/million/result.html:25
+msgid "Wrong"
+msgstr "Sbagliato"
+
+#: jeopardy/templates/jeopardy/wrong.html:38
+msgid "Go to the Score Board"
+msgstr ""
+
+#: jeopardy/templates/jeopardy/wrong.html:40
+#: million/templates/million/result.html:23
+msgid "Next Question"
+msgstr "La domanda seguente"
 
 #: million/admin.py:17
 msgid "First Question"
@@ -34,55 +193,39 @@ msgstr "La Terza Domanda"
 msgid "Fourth Question"
 msgstr "La Quarta Domanda"
 
-#: million/models.py:10 million/models.py:23
-msgid "Game"
-msgstr "Gioco"
-
-#: million/models.py:11
-msgid "Games"
-msgstr "Giochi"
-
-#: million/models.py:13
-msgid "Name"
-msgstr "Nome del Gioco"
-
-#: million/models.py:24
-msgid "Question"
-msgstr "Domanda"
-
-#: million/models.py:26
+#: million/models.py:30
 msgid "Value"
 msgstr "Punteggio"
 
-#: million/models.py:29
+#: million/models.py:33
 msgid "First Answer"
 msgstr "La Prima Risposta"
 
-#: million/models.py:30
+#: million/models.py:34
 msgid "First Answer is Correct"
 msgstr "La Prima Risposte è corretta"
 
-#: million/models.py:32
+#: million/models.py:36
 msgid "Second Answer"
 msgstr "La Seconda Risposta"
 
-#: million/models.py:33
+#: million/models.py:37
 msgid "Second Answer is Correct"
 msgstr "La Seconda Risposte è corretta"
 
-#: million/models.py:35
+#: million/models.py:39
 msgid "Third Answer"
 msgstr "La Terza Risposta"
 
-#: million/models.py:36
+#: million/models.py:40
 msgid "Third Answer is Correct"
 msgstr "La Terza Risposte è corretta"
 
-#: million/models.py:38
+#: million/models.py:42
 msgid "Fourth Answer"
 msgstr "La Quarta Risposta"
 
-#: million/models.py:39
+#: million/models.py:43
 msgid "Fourth Answer is Correct"
 msgstr "La Quarta Risposte è corretta"
 
@@ -93,14 +236,6 @@ msgstr "La Quarta Risposte è corretta"
 #: million/templates/million/result.html:16
 msgid "Who Wants to </br> be a Millionaire?"
 msgstr "Chi vuol'essere </br> il Milionario?"
-
-#: million/templates/million/game.html:19
-msgid "Play"
-msgstr "Gioca"
-
-#: million/templates/million/guess.html:16
-msgid "Answer"
-msgstr "La Risposta"
 
 #: million/templates/million/guess.html:18
 msgid "Is this your final answer?"
@@ -114,46 +249,20 @@ msgstr "Si"
 msgid "No"
 msgstr "No"
 
-#: million/templates/million/index.html:5
-#: million/templates/million/million.html:5
-#: million/templates/million/quit.html:5
-msgid "Who Wants to be a Millionaire?"
-msgstr "Chi vuol'essere il Milionario?"
-
-#: million/templates/million/index.html:18
-msgid "Please Choose a Game to Play!"
-msgstr "Per favore scegli il Gioco!"
-
 #: million/templates/million/million.html:14
 msgid "You Are a Millionaire!"
 msgstr "Sei diventato il Milionario!"
 
-#: million/templates/million/million.html:18
-#: million/templates/million/quit.html:21
-msgid "New Game"
-msgstr "Gioca di nuovo"
-
-#: million/templates/million/question.html:64
-msgid "Resign"
-msgstr "Interrompi"
-
+#: million/templates/million/million.html:17
 #: million/templates/million/quit.html:18
-#: million/templates/million/result.html:27
+#: million/templates/million/result.html:26
 msgid "You won"
 msgstr "Hai vinto"
 
-#: million/templates/million/result.html:22
-msgid "Correct"
-msgstr "Corretto"
+#: million/templates/million/question.html:69
+msgid "Resign"
+msgstr "Interrompi"
 
-#: million/templates/million/result.html:23
-msgid "Next Question"
-msgstr "La domanda seguente"
-
-#: million/templates/million/result.html:25
-msgid "Wrong"
-msgstr "Sbagliato"
-
-#: million/templates/million/result.html:29
+#: million/templates/million/result.html:27
 msgid "Play Again"
 msgstr "Gioca di nuovo"
