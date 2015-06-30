@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Game, Topic, Question, BonusQuestion, Points
+from .models import Game, Topic, Question, BonusQuestion, Points, Result, Player
 from django.core.urlresolvers import reverse
 from operator import itemgetter
 from random import randint
@@ -73,7 +73,11 @@ def give_points(request, game_id, question_id):
 
 def scores(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
-    players = reversed(sorted(request.session['jeopardy_game'].items(), key=itemgetter(1)))
+    players = list(reversed(sorted(
+        request.session['jeopardy_game'].items(), key=itemgetter(1))))
+    result = Result.objects.create(game=game)
+    for player, points in players:
+        player = Player.objects.create(result=result, name=player, points=points)
     return render(request, "jeopardy/scores.html", {
         "players": players,
         "game": game

@@ -35,7 +35,7 @@
 		</h2>
 		{% if question.correct_picture %}
 			<div class="center">
-				<img src="{{ question.correct_picture.url }}" />
+				<img style="max-width:300px; max-height:300px" src="{{ question.correct_picture.url }}" />
 			</div>
 		{% endif %}
 		<form method="post" action="{% url "jeopardy-game-points" game_id=game.pk question_id=question.pk %}">

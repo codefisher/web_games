@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django import forms
+from django.db.models import Sum
 from django.utils.translation import ugettext_lazy as _
-from .models import BonusQuestion, Game, Points, Question, Topic
+from .models import BonusQuestion, Game, Points, Question, Topic, Result, Player
 
 class TopicInline(admin.TabularInline):
     model = Topic
@@ -65,6 +66,40 @@ class BonusQuestionInline(admin.StackedInline):
         if obj:
             return extra - obj.bonus_question.count()
         return extra
+
+class PlayerInline(admin.TabularInline):
+    model = Player
+    extra = 0
+    readonly_fields = ('name', 'points')
+
+    def has_delete_permission(self, request, obj=None):
+        #Disable delete
+        return False
+
+class ResultAdmin(admin.ModelAdmin):
+    list_display = ['game', 'time']
+    readonly_fields = ('game', 'time')
+    inlines = [PlayerInline]
+
+admin.site.register(Result, ResultAdmin)
+
+class PlayerAdmin(admin.ModelAdmin):
+    list_display = ['name', 'point_total']
+    search_fields = ['name']
+    list_display_links = None
+
+    def get_queryset(self, request):
+        qs = super(PlayerAdmin, self).get_queryset(request)
+        keys = [Player.objects.filter(name=item['name'])[0].pk for item in qs.values('name').distinct()]
+        return qs.filter(pk__in=keys)
+        #return Player.objects.raw("SELECT name, SUM(points) as points FROM jeopardy_player GROUP BY name")
+
+
+    def point_total(self, obj):
+        return Player.objects.filter(name=obj.name).aggregate(total=Sum('points'))['total']
+    point_total.short_description = 'Total'
+
+admin.site.register(Player, PlayerAdmin)
 
 
 

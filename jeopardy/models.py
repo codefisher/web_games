@@ -1,4 +1,5 @@
 import time
+import datetime
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
@@ -60,7 +61,7 @@ class Points(models.Model):
 
     game = models.ForeignKey(
         Game, verbose_name=_('Game'), related_name="points")
-    value = models.IntegerField()
+    value = models.IntegerField(verbose_name=_('Value'))
 
     def __str__(self):
         return str(self.value)
@@ -105,3 +106,26 @@ class Question(models.Model):
         if self.question:
             return self.question
         return unicode(_(u'Question'))
+
+class Result(models.Model):
+
+    class Meta:
+        verbose_name = _('Result')
+
+    game = models.ForeignKey(
+        Game, verbose_name=_('Result'), related_name="results")
+    time = models.DateTimeField(blank=True, default=datetime.datetime.now,
+            verbose_name="Time")
+
+class Player(models.Model):
+
+    class Meta:
+        verbose_name = _('Player')
+
+    def __unicode__(self):
+        return self.name
+
+    name = models.CharField(max_length=50, verbose_name=_('Player Name'))
+    points = models.IntegerField(verbose_name=_('Points'))
+    result = models.ForeignKey(Result, verbose_name=_('Result'))
+
