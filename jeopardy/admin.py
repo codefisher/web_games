@@ -31,6 +31,10 @@ class QuestionInlineFormSet(forms.models.BaseInlineFormSet):
         points = Points.objects.filter(game=game.pk)
         topics = Topic.objects.filter(game=game.pk)
         initial = []
+        # pad this out so not to mess with already entered data
+        for question in game.questions.all():
+            initial.append({})
+        # add the default data for the extra fields
         for topic in topics:
             for point in points:
                 if not Question.objects.filter(points=point.pk, topic=topic.pk).count():

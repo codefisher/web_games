@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-29 09:45+0000\n"
+"POT-Creation-Date: 2015-06-30 09:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,8 +50,17 @@ msgstr ""
 msgid "Administration"
 msgstr ""
 
-#: jeopardy/models.py:12 jeopardy/models.py:34 jeopardy/models.py:59
-#: jeopardy/models.py:67 jeopardy/models.py:76 million/models.py:11
+#: jeopardy/admin.py:113 jeopardy/models.py:35 jeopardy/models.py:85
+#: jeopardy/models.py:107 million/models.py:27
+msgid "Question"
+msgstr "Domanda"
+
+#: jeopardy/admin.py:116
+msgid "Images"
+msgstr ""
+
+#: jeopardy/models.py:12 jeopardy/models.py:34 jeopardy/models.py:62
+#: jeopardy/models.py:70 jeopardy/models.py:79 million/models.py:11
 #: million/models.py:26
 msgid "Game"
 msgstr "Gioco"
@@ -60,7 +69,7 @@ msgstr "Gioco"
 msgid "Games"
 msgstr "Giochi"
 
-#: jeopardy/models.py:15 jeopardy/models.py:68 million/models.py:14
+#: jeopardy/models.py:15 jeopardy/models.py:71 million/models.py:14
 msgid "Name"
 msgstr "Nome del Gioco"
 
@@ -74,36 +83,42 @@ msgstr ""
 msgid "Final Question"
 msgstr "La Prima Domanda"
 
-#: jeopardy/models.py:35 jeopardy/models.py:82 jeopardy/models.py:100
-#: million/models.py:27
-msgid "Question"
-msgstr "Domanda"
-
-#: jeopardy/models.py:37 jeopardy/models.py:84 million/models.py:28
+#: jeopardy/models.py:37 jeopardy/models.py:87 million/models.py:28
 msgid "Picture"
 msgstr ""
 
-#: jeopardy/models.py:39 jeopardy/models.py:87
+#: jeopardy/models.py:40 jeopardy/models.py:90
+msgid "Sound"
+msgstr ""
+
+#: jeopardy/models.py:42 jeopardy/models.py:93
 #: jeopardy/templates/jeopardy/points.html:34
 #: jeopardy/templates/jeopardy/wrong.html:30
 #: million/templates/million/guess.html:16
 msgid "Answer"
 msgstr "La Risposta"
 
-#: jeopardy/models.py:43 jeopardy/models.py:91
-msgid "Picture When Correct"
-msgstr ""
-
-#: jeopardy/models.py:46 jeopardy/models.py:94
-msgid "Picture When Wrong"
-msgstr ""
-
-#: jeopardy/models.py:55 jeopardy/models.py:56 jeopardy/models.py:78
+#: jeopardy/models.py:43 jeopardy/models.py:58 jeopardy/models.py:59
+#: jeopardy/models.py:81
 msgid "Points"
 msgstr ""
 
-#: jeopardy/models.py:80
+#: jeopardy/models.py:46 jeopardy/models.py:97
+msgid "Picture When Correct"
+msgstr ""
+
+#: jeopardy/models.py:49 jeopardy/models.py:100
+msgid "Picture When Wrong"
+msgstr ""
+
+#: jeopardy/models.py:83
 msgid "Topic"
+msgstr ""
+
+#: jeopardy/models.py:94 jeopardy/templates/jeopardy/points.html:17
+#: jeopardy/templates/jeopardy/question.html:20
+#: jeopardy/templates/jeopardy/wrong.html:17
+msgid "Bonus Points"
 msgstr ""
 
 #: jeopardy/templates/jeopardy/game.html:45
@@ -123,12 +138,6 @@ msgstr "Per favore scegli il Gioco!"
 msgid "This question has not been created!"
 msgstr ""
 
-#: jeopardy/templates/jeopardy/points.html:17
-#: jeopardy/templates/jeopardy/question.html:20
-#: jeopardy/templates/jeopardy/wrong.html:17
-msgid "Bonus Points"
-msgstr ""
-
 #: jeopardy/templates/jeopardy/points.html:33
 #: million/templates/million/result.html:22
 msgid "Correct"
@@ -138,7 +147,7 @@ msgstr "Corretto"
 msgid "Who won these points?"
 msgstr ""
 
-#: jeopardy/templates/jeopardy/question.html:53
+#: jeopardy/templates/jeopardy/question.html:66
 #, fuzzy
 #| msgid "Second Answer"
 msgid "Seconds"
