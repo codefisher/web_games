@@ -12,12 +12,13 @@
 	<audio autoplay="autoplay" controls>
 	  <source src="/static/jeopary-question.mp3" type="audio/mpeg">
 	</audio>
-	<ol id="sidebar">
+	<div id="index">
+		<div id="content">
+							<ol id="sidebar">
 		{% for player, points in players %}
 		<li>{{ player }} - {{ points }}</li>
 		{% endfor %}
 	</ol>
-	<div id="index">
 		<h1>
 			{% trans "Jeopardy" %}
 		</h1>
@@ -42,7 +43,8 @@
 			</tbody>
 		</table>
 		{% if show_bonus %}
-			<a href="{% url "jeopardy-bonus" game_id=game.pk %}">{% trans "Bonus Question" %}</a>
+			<a href="{% url "jeopardy-bonus" game_id=game.pk %}">{% trans "Final Question" %}</a>
 		{% endif %}
+		</div>
 	</div>
 </body>
