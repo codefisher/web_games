@@ -36,8 +36,11 @@ class BonusQuestion(models.Model):
     picture = models.ImageField(
         null=True, blank=True, verbose_name=_('Picture'),
         upload_to=question_image_path)
+    sound = models.FileField(
+        null=True, blank=True, verbose_name=_('Sound'),
+        upload_to=question_image_path)
     answer = models.CharField(max_length=255, verbose_name=_('Answer'))
-    value = models.IntegerField()
+    value = models.IntegerField(verbose_name=_('Points')),
 
     correct_picture = models.ImageField(
         null=True, blank=True, verbose_name=_('Picture When Correct'),
@@ -83,6 +86,9 @@ class Question(models.Model):
     picture = models.ImageField(
         null=True, blank=True, verbose_name=_('Picture'),
         upload_to=question_image_path)
+    sound = models.FileField(
+        null=True, blank=True, verbose_name=_('Sound'),
+        upload_to=question_image_path)
     answer = models.CharField(
         max_length=255, blank=True, null=True, verbose_name=_('Answer'))
     bonus = models.IntegerField(default=0)
@@ -93,6 +99,7 @@ class Question(models.Model):
     wrong_picture = models.ImageField(
         null=True, blank=True, verbose_name=_('Picture When Wrong'),
         upload_to=question_image_path)
+
 
     def __unicode__(self):
         if self.question:
