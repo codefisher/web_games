@@ -22,14 +22,47 @@ class PointsInline(admin.TabularInline):
             return extra - obj.points.count()
         return extra
 
-class BonusQuestionInline(admin.TabularInline):
+class QuestionInlineFormSet(forms.models.BaseInlineFormSet):
+    model = Question
+
+    def __init__(self, *args, **kwargs):
+        super(QuestionInlineFormSet, self).__init__(*args, **kwargs)
+        game = kwargs['instance']
+        points = Points.objects.filter(game=game.pk)
+        topics = Topic.objects.filter(game=game.pk)
+        initial = []
+        for topic in topics:
+            for point in points:
+                if not Question.objects.filter(points=point.pk, topic=topic.pk).count():
+                    initial.append({'points': point, 'topic': topic})
+        self.initial = initial
+
+class QuestionInline(admin.StackedInline):
+    model = Question
+    formset = QuestionInlineFormSet
+
+    fields = ['game', 'topic', 'points',
+              'question', 'answer', 'picture', 'sound', 'bonus',
+              'correct_picture', 'wrong_picture']
+
+    def get_extra(self, request, obj=None, **kwargs):
+        if obj:
+            return (obj.points.count() * obj.topic.count()) - obj.questions.count()
+        return 0
+
+class BonusQuestionInline(admin.StackedInline):
     model = BonusQuestion
+
+    fields = ['question', 'answer', 'picture', 'sound', 'value',
+              'correct_picture', 'wrong_picture']
 
     def get_extra(self, request, obj=None, **kwargs):
         extra = 2
         if obj:
             return extra - obj.bonus_question.count()
         return extra
+
+
 
 class GameAdmin(admin.ModelAdmin):
     list_display = ["name"]
@@ -39,7 +72,7 @@ class GameAdmin(admin.ModelAdmin):
         return super(GameAdmin, self).add_view(*args, **kwargs)
 
     def change_view(self, *args, **kwargs):
-        self.inlines = [TopicInline, PointsInline, BonusQuestionInline]
+        self.inlines = [TopicInline, PointsInline, QuestionInline, BonusQuestionInline]
         return super(GameAdmin, self).change_view(*args, **kwargs)
 
 admin.site.register(Game, GameAdmin)
@@ -63,11 +96,15 @@ class QuestionAdmin(admin.ModelAdmin):
     list_filter = ["game"]
     list_display = ["game", "topic", "points", "question", "answer", "bonus"]
 
+    fields = ['game', 'topic', 'points',
+              'question', 'answer', 'picture', 'sound', 'bonus'
+              'correct_picture', 'wrong_picture']
+
     def get_fieldsets(self, request, obj=None, **kwargs):
         if obj:
             return (
                 (None, {
-                    'fields': ('game', 'points', 'topic')
+                    'fields': ('game', 'topic', 'points')
                 }),
                 (_('Question'), {
                     'fields': ('question', 'answer', 'picture', 'sound', 'bonus')
