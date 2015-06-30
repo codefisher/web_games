@@ -14,11 +14,11 @@
 	</audio>
 	<div id="index">
 		<div id="content">
-							<ol id="sidebar">
-		{% for player, points in players %}
-		<li>{{ player }} - {{ points }}</li>
-		{% endfor %}
-	</ol>
+			<table id="sidebar">
+				{% for player, points in players %}
+				<tr><td style="width:1em">{{ forloop.counter }}</td><td>{{ player }}</td><td>{{ points }}</td></tr>
+				{% endfor %}
+			</table>
 		<h1>
 			{% trans "Jeopardy" %}
 		</h1>
@@ -42,6 +42,9 @@
 				{% endfor %}
 			</tbody>
 		</table>
+		{% if remaining and remaining <= 6 %}
+			<p>{% trans "Questions remaining" %}: {{ remaining }}</p>
+		{% endif %}
 		{% if show_bonus %}
 			<a href="{% url "jeopardy-bonus" game_id=game.pk %}">{% trans "Final Question" %}</a>
 		{% endif %}

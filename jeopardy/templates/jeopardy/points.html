@@ -26,7 +26,7 @@
 		</h1>
 		{% if question.picture %}
 			<div class="center">
-				<img src="{{ question.picture.url }}" />
+				<img style="max-width:300px; max-height:300px" src="{{ question.picture.url }}" />
 			</div>
 		{% endif %}
 		<h2 class="correct">
@@ -45,11 +45,11 @@
 				<input type="hidden" name="bonus" value="yes" />
 			{% endif %}
 			<p>
-				{% trans "Who won these points?" %}
+				{% blocktrans with point.value as points %}Who won these {{ points }} points?{% endblocktrans %}
 			</p>
-			<ul>
+			<ul style="font-size:2em;">
 				{% for player, points in players %}
-					<li><label><input type="radio" name="player" value="{{ player}}" />{{ player}}</label></li>
+					<li><label><input type="radio" name="player" value="{{ player}}" /> {{ player}}</label></li>
 				{% endfor %}
 			</ul>
 			<div class="right">

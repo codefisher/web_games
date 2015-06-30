@@ -12,6 +12,16 @@
     font-size:30px;
 }
 
+#sidebar {
+    width:250px;
+    margin:10px 0;
+    border-collapse: collapse;
+}
+
+#sidebar td {
+    padding:5px;
+}
+
 #game-table td a {
     font-size:30px;
 }

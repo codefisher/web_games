@@ -46,12 +46,14 @@ def game(request, game_id):
     questions = Question.objects.filter(game=game)
     topics = Topic.objects.filter(game=game)
     points = Points.objects.filter(game=game)
+    remaining = ((len(topics) * len(points)) - len(request.session['jeopardy_questions']))
     show_bonus = (len(request.session['jeopardy_questions']) == len(topics) * len(points))
     return render(request, "jeopardy/game.html", {
         "game": game,
         "questions": questions,
         "topics": topics,
         "points": points,
+        "remaining": remaining,
         "show_bonus": show_bonus,
         "questions_done": request.session['jeopardy_questions'],
         "players": request.session['jeopardy_game'].items(),
