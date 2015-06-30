@@ -59,6 +59,8 @@ def game(request, game_id):
 
 def give_points(request, game_id, question_id):
     if request.method == "POST":
+        if 'player' not in request.POST:
+            return redirect(reverse("jeopardy-game", kwargs={"game_id": game_id}))
         player = request.POST.get('player')
         if "bonus" in request.POST:
             question = BonusQuestion.objects.get(pk=question_id)
