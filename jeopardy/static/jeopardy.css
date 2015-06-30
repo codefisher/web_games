@@ -1,4 +1,8 @@
 
+#index {
+    width:900px;
+    margin:0 auto;
+}
 
 #game-table td,
 #scores td {
@@ -20,6 +24,7 @@
 
 #game-table thead td {
     font-weight:bold;
+    font-size:20px;
     color:#FFFF00;
 }
 
