@@ -12,10 +12,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='bonusquestion',
-            name='value',
-        ),
         migrations.AddField(
             model_name='bonusquestion',
             name='sound',
