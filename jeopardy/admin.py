@@ -70,10 +70,8 @@ class BonusQuestionInline(admin.StackedInline):
 class PlayerInline(admin.TabularInline):
     model = Player
     extra = 0
-    readonly_fields = ('name', 'points')
 
     def has_delete_permission(self, request, obj=None):
-        #Disable delete
         return False
 
 class ResultAdmin(admin.ModelAdmin):

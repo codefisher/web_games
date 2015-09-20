@@ -34,10 +34,12 @@
 				<img src="{{ question.wrong_picture.url }}" />
 			</div>
 		{% endif %}
-		{% if bonus %}
-			<a href="{% url "jeopardy-scores" game_id=game.pk %}">{% trans "Go to the Score Board" %}!</a>
-		{% else %}
-			<a href="{% url "jeopardy-game" game_id=game.pk %}">{% trans "Next Question" %}</a>
-		{% endif %}
+		<div class="center">
+			{% if bonus %}
+				<a href="{% url "jeopardy-scores" game_id=game.pk %}">{% trans "Go to the Score Board" %}!</a>
+			{% else %}
+				<a href="{% url "jeopardy-game" game_id=game.pk %}">{% trans "Next Question" %}</a>
+			{% endif %}
+		</div>
 	</div>
 </body>

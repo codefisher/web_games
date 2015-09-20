@@ -13,8 +13,8 @@
 		<audio autoplay="autoplay" controls>
 		  <source src="/static/final-jeopary-question.mp3" type="audio/mpeg">
 		</audio>
-		{% else %}
-		<audio autoplay="autoplay" controls>
+		{% elif game.use_countdown %}
+		<audio id="ticker-clock" controls>
 		  <source src="/static/ticker.mp3" type="audio/mpeg">
 		</audio>
 		{% endif %}
@@ -46,27 +46,37 @@
 		</div>
 		{% endif %}
 		<script>
-			var seconds = 20;
+			var seconds = {{ game.countdown_seconds }};
+			var seconds_change = 1;
 			window.setTimeout(function() {
 				var sound = document.getElementById('sound_file');
 				if(sound) {
 				 sound.play();
 				}
 			}, 2000);
+			{% if game.use_countdown %}
 			window.setTimeout(function() {
+				var ticker = document.getElementById('ticker-clock');
+				if(ticker) {
+					ticker.play();
+				}
 				var inter = window.setInterval(function () {
+					if(seconds_change == 0) {
+						return;
+					}
 					if (seconds >= 0) {
 						$("#time").text(seconds);
 						if (seconds <= 5) {
 							$("#time-box").addClass("low");
 						}
-						seconds--;
+						seconds -= seconds_change;
 					} else {
 						$("#game_form").submit();
 						window.clearInterval(inter);
 					}
-				}, 1000);
+				}, 750);
 			}, 3000);
+			{% endif %}
 		</script>
 		<form id="game_form" action="" method="post">
 			{% csrf_token %}
@@ -78,9 +88,23 @@
 				</tr>
 			</table>
 		</form>
+		{% if game.use_countdown %}
 		<div id="time-box" class="center">
-			<span id="time">20</span> {% trans "Seconds" %}
+			<span id="time">{{ game.countdown_seconds }}</span> {% trans "Seconds" %}
+			<button id="pause" style="display:inline;width:5em;">{% trans "Pause" %}</button>
+			<script>
+				$("#pause").on('click', function(event) {
+					if(seconds_change == 0) {
+						seconds_change = 1;
+						$("#pause").html("{% trans "Pause" %}");
+					} else {
+						seconds_change = 0;
+						$("#pause").html("{% trans "Start" %}");
+					}
+				});
+			</script>
 		</div>
+		{% endif %}
 		<p>
 			<a href="{% url 'jeopardy-game' game_id=game.pk %}">{% trans "Cancel"%}</a>
 		</p>

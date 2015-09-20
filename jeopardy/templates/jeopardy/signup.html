@@ -13,9 +13,6 @@
 			{% trans "Jeopardy" %}
 		</h1>
 
-		<p>
-			{% trans "Enter Player Names." %}
-		</p>
 		<script>
 			function addName() {
 				var list = $('#name-list');
@@ -23,7 +20,10 @@
 					+ ': <input type="text" name="name" /></label></li>');
 			}
 		</script>
-		<form action="" method="post">
+		<form action="" method="post" class="larger_form">
+			<p>
+				{% trans "Enter Player Names." %}
+			</p>
 			{% csrf_token %}
 			<ul id="name-list">
 				{% for number in numbers %}

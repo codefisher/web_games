@@ -14,10 +14,13 @@ class Game(models.Model):
         verbose_name_plural = _('Games')
 
     name = models.CharField(max_length=50, verbose_name=_('Name'))
+    use_countdown = models.BooleanField(default=True, verbose_name=_('Use Count down Timer'))
+    countdown_seconds = models.IntegerField(default=20, verbose_name=_("Number of seconds to Count down"))
+
     win_picture = models.ImageField(
         null=True, blank=True, verbose_name=_('Picture At Victory'),
         upload_to=question_image_path)
-    hidden = models.BooleanField(default=False)
+    hidden = models.BooleanField(default=False, verbose_name=_('Hidden'))
 
     def __unicode__(self):
         return self.name

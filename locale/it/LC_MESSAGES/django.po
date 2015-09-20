@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-30 09:29+0000\n"
+"POT-Creation-Date: 2015-06-30 18:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "Chi vuol'essere il Milionario?"
 
 #: game_console/templates/game_console/index.html:15
 #: jeopardy/templates/jeopardy/game.html:6
-#: jeopardy/templates/jeopardy/game.html:22
+#: jeopardy/templates/jeopardy/game.html:23
 #: jeopardy/templates/jeopardy/index.html:5
 #: jeopardy/templates/jeopardy/index.html:12
 #: jeopardy/templates/jeopardy/no_question.html:5
@@ -50,84 +50,111 @@ msgstr ""
 msgid "Administration"
 msgstr ""
 
-#: jeopardy/admin.py:113 jeopardy/models.py:35 jeopardy/models.py:85
-#: jeopardy/models.py:107 million/models.py:27
+#: jeopardy/admin.py:146 jeopardy/models.py:39 jeopardy/models.py:89
+#: jeopardy/models.py:111 million/models.py:27
 msgid "Question"
 msgstr "Domanda"
 
-#: jeopardy/admin.py:116
+#: jeopardy/admin.py:149
 msgid "Images"
 msgstr ""
 
-#: jeopardy/models.py:12 jeopardy/models.py:34 jeopardy/models.py:62
-#: jeopardy/models.py:70 jeopardy/models.py:79 million/models.py:11
+#: jeopardy/models.py:13 jeopardy/models.py:38 jeopardy/models.py:66
+#: jeopardy/models.py:74 jeopardy/models.py:83 million/models.py:11
 #: million/models.py:26
 msgid "Game"
 msgstr "Gioco"
 
-#: jeopardy/models.py:13 million/models.py:12
+#: jeopardy/models.py:14 million/models.py:12
 msgid "Games"
 msgstr "Giochi"
 
-#: jeopardy/models.py:15 jeopardy/models.py:71 million/models.py:14
+#: jeopardy/models.py:16 jeopardy/models.py:75 million/models.py:14
 msgid "Name"
 msgstr "Nome del Gioco"
 
 #: jeopardy/models.py:17
+msgid "Use Count down Timer"
+msgstr ""
+
+#: jeopardy/models.py:18
+msgid "Number of seconds to Count down"
+msgstr ""
+
+#: jeopardy/models.py:21
 msgid "Picture At Victory"
 msgstr ""
 
-#: jeopardy/models.py:30 jeopardy/models.py:31
+#: jeopardy/models.py:23
+msgid "Hidden"
+msgstr ""
+
+#: jeopardy/models.py:34 jeopardy/models.py:35
+#: jeopardy/templates/jeopardy/game.html:49
 #, fuzzy
 #| msgid "First Question"
 msgid "Final Question"
-msgstr "La Prima Domanda"
+msgstr ""
 
-#: jeopardy/models.py:37 jeopardy/models.py:87 million/models.py:28
+#: jeopardy/models.py:41 jeopardy/models.py:91 million/models.py:28
 msgid "Picture"
 msgstr ""
 
-#: jeopardy/models.py:40 jeopardy/models.py:90
+#: jeopardy/models.py:44 jeopardy/models.py:94
 msgid "Sound"
 msgstr ""
 
-#: jeopardy/models.py:42 jeopardy/models.py:93
+#: jeopardy/models.py:46 jeopardy/models.py:97
 #: jeopardy/templates/jeopardy/points.html:34
 #: jeopardy/templates/jeopardy/wrong.html:30
 #: million/templates/million/guess.html:16
 msgid "Answer"
 msgstr "La Risposta"
 
-#: jeopardy/models.py:43 jeopardy/models.py:58 jeopardy/models.py:59
-#: jeopardy/models.py:81
+#: jeopardy/models.py:47 jeopardy/models.py:62 jeopardy/models.py:63
+#: jeopardy/models.py:85 jeopardy/models.py:132
 msgid "Points"
 msgstr ""
 
-#: jeopardy/models.py:46 jeopardy/models.py:97
+#: jeopardy/models.py:50 jeopardy/models.py:101
 msgid "Picture When Correct"
 msgstr ""
 
-#: jeopardy/models.py:49 jeopardy/models.py:100
+#: jeopardy/models.py:53 jeopardy/models.py:104
 msgid "Picture When Wrong"
 msgstr ""
 
-#: jeopardy/models.py:83
+#: jeopardy/models.py:67 million/models.py:30
+msgid "Value"
+msgstr "Punteggio"
+
+#: jeopardy/models.py:87
 msgid "Topic"
 msgstr ""
 
-#: jeopardy/models.py:94 jeopardy/templates/jeopardy/points.html:17
-#: jeopardy/templates/jeopardy/question.html:20
+#: jeopardy/models.py:98 jeopardy/templates/jeopardy/points.html:17
+#: jeopardy/templates/jeopardy/question.html:26
 #: jeopardy/templates/jeopardy/wrong.html:17
 msgid "Bonus Points"
 msgstr ""
 
-#: jeopardy/templates/jeopardy/game.html:45
-#: jeopardy/templates/jeopardy/points.html:22
-#: jeopardy/templates/jeopardy/question.html:25
+#: jeopardy/models.py:116 jeopardy/models.py:119 jeopardy/models.py:133
+msgid "Result"
+msgstr ""
+
+#: jeopardy/models.py:126
 #, fuzzy
-#| msgid "Second Question"
-msgid "Bonus Question"
-msgstr "La Seconda Domanda"
+#| msgid "Play"
+msgid "Player"
+msgstr ""
+
+#: jeopardy/models.py:131
+msgid "Player Name"
+msgstr ""
+
+#: jeopardy/templates/jeopardy/game.html:46
+msgid "Questions remaining"
+msgstr ""
 
 #: jeopardy/templates/jeopardy/index.html:15
 #: million/templates/million/index.html:18
@@ -138,20 +165,32 @@ msgstr "Per favore scegli il Gioco!"
 msgid "This question has not been created!"
 msgstr ""
 
+#: jeopardy/templates/jeopardy/points.html:22
+#: jeopardy/templates/jeopardy/question.html:31
+#, fuzzy
+#| msgid "Second Question"
+msgid "Bonus Question"
+msgstr ""
+
 #: jeopardy/templates/jeopardy/points.html:33
 #: million/templates/million/result.html:22
 msgid "Correct"
 msgstr "Corretto"
 
 #: jeopardy/templates/jeopardy/points.html:48
-msgid "Who won these points?"
+#, python-format
+msgid "Who won these %(points)s points?"
 msgstr ""
 
-#: jeopardy/templates/jeopardy/question.html:66
+#: jeopardy/templates/jeopardy/question.html:89
 #, fuzzy
 #| msgid "Second Answer"
 msgid "Seconds"
 msgstr "La Seconda Risposta"
+
+#: jeopardy/templates/jeopardy/question.html:93
+msgid "Cancel"
+msgstr ""
 
 #: jeopardy/templates/jeopardy/scores.html:30
 #: million/templates/million/million.html:20
@@ -159,7 +198,7 @@ msgstr "La Seconda Risposta"
 msgid "New Game"
 msgstr "Gioca di nuovo"
 
-#: jeopardy/templates/jeopardy/signup.html:17
+#: jeopardy/templates/jeopardy/signup.html:25
 msgid "Enter Player Names."
 msgstr ""
 
@@ -177,11 +216,11 @@ msgstr "Gioca"
 msgid "Wrong"
 msgstr "Sbagliato"
 
-#: jeopardy/templates/jeopardy/wrong.html:38
+#: jeopardy/templates/jeopardy/wrong.html:39
 msgid "Go to the Score Board"
 msgstr ""
 
-#: jeopardy/templates/jeopardy/wrong.html:40
+#: jeopardy/templates/jeopardy/wrong.html:41
 #: million/templates/million/result.html:23
 msgid "Next Question"
 msgstr "La domanda seguente"
@@ -201,10 +240,6 @@ msgstr "La Terza Domanda"
 #: million/admin.py:26
 msgid "Fourth Question"
 msgstr "La Quarta Domanda"
-
-#: million/models.py:30
-msgid "Value"
-msgstr "Punteggio"
 
 #: million/models.py:33
 msgid "First Answer"
