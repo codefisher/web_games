@@ -1,7 +1,12 @@
 
 #index {
-    width:900px;
+    width:1250px;
     margin:0 auto;
+    font-size:1.25em;
+}
+
+#content {
+    width:1000px;
 }
 
 #game-table td,
@@ -9,7 +14,7 @@
     border: 3px solid #ffffff;
     width: 20%;
     text-align: center;
-    font-size:30px;
+    font-size:50px;
 }
 
 #sidebar {
@@ -23,18 +28,18 @@
 }
 
 #game-table td a {
-    font-size:30px;
+    font-size:50px;
 }
 
 #game-table tbody td {
     padding:5px;
-    color:#aaaaaa;
-    line-height:40px;
+    color:#ff0000;
+    line-height:65px;
 }
 
 #game-table thead td {
     font-weight:bold;
-    font-size:20px;
+    font-size:35px;
     color:#FFFF00;
 }
 
@@ -50,6 +55,7 @@
 
 #game-table, #scores {
     border-collapse: collapse;
+    width:1250px;
 }
 
 #topic-value {
