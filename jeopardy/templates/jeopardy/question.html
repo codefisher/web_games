@@ -79,6 +79,10 @@
 						time--;
 					}
 				}, 1000);
+				var ticker = document.getElementById('ticker-clock');
+				if(ticker) {
+					ticker.pause();
+				}
 			}
 			$(document).keydown(function(e) {
 				var key = String.fromCharCode(e.keyCode).toLowerCase();
