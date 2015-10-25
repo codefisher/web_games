@@ -15,7 +15,7 @@ class Game(models.Model):
 
     name = models.CharField(max_length=50, verbose_name=_('Name'))
     use_countdown = models.BooleanField(default=True, verbose_name=_('Use Count down Timer'))
-    countdown_seconds = models.IntegerField(default=20, verbose_name=_("Number of seconds to Count down"))
+    countdown_seconds = models.IntegerField(default=10, verbose_name=_("Number of seconds to Count down"))
 
     win_picture = models.ImageField(
         null=True, blank=True, verbose_name=_('Picture At Victory'),

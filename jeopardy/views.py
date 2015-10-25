@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Game, Topic, Question, BonusQuestion, Points, Result, Player
 from django.core.urlresolvers import reverse
@@ -20,10 +21,16 @@ def bonus(request, game_id):
             template = "jeopardy/points.html"
         else:
             template = "jeopardy/wrong.html"
+        player_input = request.POST.get('player')
+        if player_input and player_input.isdigit():
+            player = int(player_input) + 1
+        else:
+            player = None
         return render(request, template, {
             "game": game,
             "question": question,
             "bonus": True,
+            "player_number": player,
             "players": request.session['jeopardy_game'].items(),
         })
     questions = BonusQuestion.objects.filter(game=game.pk)
@@ -32,6 +39,8 @@ def bonus(request, game_id):
         "game": game,
         "question": question,
         "bonus": True,
+        "players": request.session['jeopardy_game'].items(),
+        "names": json.dumps([name for name, points in request.session['jeopardy_game'].items()])
     })
 
 def game(request, game_id):
@@ -102,11 +111,17 @@ def question(request, game_id, topic_id, point_id):
             template = "jeopardy/points.html"
         else:
             template = "jeopardy/wrong.html"
+        player_input = request.POST.get('player')
+        if player_input and player_input.isdigit():
+            player = int(player_input) + 1
+        else:
+            player = None
         return render(request, template, {
             "game": game,
             "topic": topic,
             "point": point,
             "question": question,
+            "player_number": player,
             "players": request.session['jeopardy_game'].items(),
         })
     return render(request, "jeopardy/question.html", {
@@ -115,4 +130,6 @@ def question(request, game_id, topic_id, point_id):
         "point": point,
         "question": question,
         "bonus": False,
+        "players": request.session['jeopardy_game'].items(),
+        "names": json.dumps([name for name, points in request.session['jeopardy_game'].items()])
     })
