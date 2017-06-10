@@ -79,6 +79,16 @@
     font-size:1.25em;
 }
 
+#name-list [for*=sound],
+#name-list [id*=sound] {
+    font-size:0.5em;
+}
+
+.blind {
+    height: 0px;
+    overflow: hidden;
+}
+
 #flash-box {
     position: fixed;
     top:0;

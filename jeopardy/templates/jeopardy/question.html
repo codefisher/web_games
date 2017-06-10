@@ -35,8 +35,18 @@
 		</h1>
 		{% if question.picture %}
 			<div class="center">
-				<img style="max-width:300px; max-height:300px" src="{{ question.picture.url }}" />
+				<div id="question-picture">
+					<img style="max-width:300px; max-height:300px" src="{{ question.picture.url }}" />
+				</div>
 			</div>
+			{% if question.picture_reveal %}
+				<script type="text/javascript">
+				var questionPicture = $('#question-picture');
+				var pictureHeight = questionPicture.height();
+				questionPicture.parent().height(pictureHeight);
+				questionPicture.addClass('blind');
+				</script>
+			{% endif %}
 		{% endif %}
 		{% if question.sound %}
 		<div class="center">
@@ -50,6 +60,7 @@
 			var seconds_change = 0;
 			var canPlay = false;
 			var names = {{ names|safe }};
+			var sounds = {{ sounds|safe }};
 			var playerNumber = null;
 			var buzzed = [];
 			var inter = null;
@@ -72,6 +83,9 @@
 					if(time == 0) {
 						box.text('{% trans "Go" %}!');
 						box.fadeOut(1500);
+						if(questionPicture) {
+							questionPicture.animate({height: pictureHeight + "px"}, 10000);
+						}
 						canPlay = true;
 						window.clearInterval(countDown);
 					} else {
@@ -107,6 +121,20 @@
 						box.text(names[playerNumber]);
 						box.show();
 						document.getElementById('player_input').setAttribute('value', playerNumber);
+						var soundEffect = sounds[names[playerNumber]];
+						if(soundEffect) {
+							var oldAudio = document.getElementById('audio-element');
+							if(oldAudio != null) {
+								oldAudio.pause();
+								oldAudio.parentNode.removeChild(oldAudio);
+							}
+							var audio = document.createElement('audio');
+							audio.id = "audio-element";
+							audio.setAttribute('src', soundEffect);
+							audio.setAttribute('type', 'audio/mpeg');
+							document.body.appendChild(audio);
+							audio.play();
+						}
 						if(document.getElementById('time-box')) {
 							var timer = $('#time-box');
 							timer.show();
