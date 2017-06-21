@@ -35,19 +35,25 @@
 		</h1>
 		<script type="text/javascript">
 			var questionPicture = null;
+			var pictureHeight = 0;
 		</script>
 		{% if question.picture %}
 			<div class="center">
 				<div id="question-picture">
-					<img style="max-width:300px; max-height:300px" src="{{ question.picture.url }}" />
+					<img id="question-img" style="max-width:300px; max-height:300px;" src="{{ question.picture.url }}" />
 				</div>
 			</div>
 			{% if question.picture_reveal %}
 				<script type="text/javascript">
-				var questionPicture = $('#question-picture');
-				var pictureHeight = questionPicture.height();
-				questionPicture.parent().height(pictureHeight);
-				questionPicture.addClass('blind');
+				var questionImg = $("#question-img");
+				questionImg.css('visibility', 'hidden');
+				questionImg.load(function() {
+					questionImg.css('visibility', 'visible');
+					questionPicture = $('#question-picture');
+					pictureHeight = questionPicture.height();
+					questionPicture.parent().height(pictureHeight);
+					questionPicture.addClass('blind');
+				});
 				</script>
 			{% endif %}
 		{% endif %}
