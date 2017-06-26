@@ -41,6 +41,7 @@ class BonusQuestion(models.Model):
         null=True, blank=True, verbose_name=_('Picture'),
         upload_to=question_image_path)
     picture_reveal = models.BooleanField(default=False, verbose_name=_('Slowly Reveal Picture'))
+    reveal_time = models.IntegerField(default=10, verbose_name=_('Picture Reveal Seconds'))
     sound = models.FileField(
         null=True, blank=True, verbose_name=_('Sound'),
         upload_to=question_image_path)
@@ -92,6 +93,7 @@ class Question(models.Model):
         null=True, blank=True, verbose_name=_('Picture'),
         upload_to=question_image_path)
     picture_reveal = models.BooleanField(default=False, verbose_name=_('Slowly Reveal Picture'))
+    reveal_time = models.IntegerField(default=10, verbose_name=_('Picture Reveal Seconds'))
     sound = models.FileField(
         null=True, blank=True, verbose_name=_('Sound'),
         upload_to=question_image_path)

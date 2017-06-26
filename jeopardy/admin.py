@@ -47,7 +47,7 @@ class QuestionInline(admin.StackedInline):
     formset = QuestionInlineFormSet
 
     fields = ['game', 'topic', 'points',
-              'question', 'answer', 'picture', 'picture_reveal', 'sound', 'bonus',
+              'question', 'answer', 'picture', 'picture_reveal', 'reveal_time', 'sound', 'bonus',
               'correct_picture', 'wrong_picture']
 
     def get_extra(self, request, obj=None, **kwargs):
@@ -58,7 +58,7 @@ class QuestionInline(admin.StackedInline):
 class BonusQuestionInline(admin.StackedInline):
     model = BonusQuestion
 
-    fields = ['question', 'answer', 'picture', 'picture_reveal', 'sound', 'value',
+    fields = ['question', 'answer', 'picture', 'picture_reveal', 'reveal_time', 'sound', 'value',
               'correct_picture', 'wrong_picture']
 
     def get_extra(self, request, obj=None, **kwargs):
@@ -118,7 +118,7 @@ class QuestionForm(forms.ModelForm):
 
     class Meta:
         model = Question
-        fields = ['game', 'points', 'topic', 'question', 'picture', 'picture_reveal',
+        fields = ['game', 'points', 'topic', 'question', 'picture', 'picture_reveal', 'reveal_time',
                   'correct_picture', 'wrong_picture', 'sound', 'answer', 'bonus']
 
     def __init__(self, *args, **kwargs):
@@ -134,7 +134,7 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display = ["game", "topic", "points", "question", "answer", "bonus"]
 
     fields = ['game', 'topic', 'points',
-              'question', 'answer', 'picture', 'picture_reveal', 'sound', 'bonus'
+              'question', 'answer', 'picture', 'picture_reveal', 'reveal_time', 'sound', 'bonus'
               'correct_picture', 'wrong_picture']
 
     def get_fieldsets(self, request, obj=None, **kwargs):
@@ -144,7 +144,7 @@ class QuestionAdmin(admin.ModelAdmin):
                     'fields': ('game', 'topic', 'points')
                 }),
                 (_('Question'), {
-                    'fields': ('question', 'answer', 'picture', 'picture_reveal', 'sound', 'bonus')
+                    'fields': ('question', 'answer', 'picture', 'picture_reveal', 'reveal_time', 'sound', 'bonus')
                 }),
                 (_('Images'), {
                     'fields': ('correct_picture', 'wrong_picture',)
