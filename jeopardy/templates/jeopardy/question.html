@@ -93,7 +93,7 @@
 						box.text('{% trans "Go" %}!');
 						box.fadeOut(1500);
 						if(questionPicture) {
-							questionPicture.animate({height: pictureHeight + "px"}, 10000);
+							questionPicture.animate({height: pictureHeight + "px"}, {{ question.reveal_time }} * 1000);
 						}
 						canPlay = true;
 						window.clearInterval(countDown);
@@ -140,6 +140,7 @@
 							var audio = document.createElement('audio');
 							audio.id = "audio-element";
 							audio.setAttribute('src', soundEffect);
+                            audio.setAttribute('controls', 'controls');
 							audio.setAttribute('type', 'audio/mpeg');
 							document.body.appendChild(audio);
 							audio.play();
@@ -152,7 +153,7 @@
 							time.text(start_seconds);
 							var seconds = start_seconds;
 							var ticker = document.getElementById('ticker-clock');
-							if(ticker) {
+							if(ticker && !soundEffect) {
 								ticker.play();
 							}
 							if(inter) {
