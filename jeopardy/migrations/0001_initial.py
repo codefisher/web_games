@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('value', models.IntegerField()),
-                ('game', models.ForeignKey(related_name='points', verbose_name='Game', to='jeopardy.Game')),
+                ('game', models.ForeignKey(related_name='points', verbose_name='Game', to='jeopardy.Game', on_delete=models.CASCADE)),
             ],
         ),
         migrations.CreateModel(
@@ -48,8 +48,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('question', models.CharField(max_length=255, verbose_name='Question')),
                 ('answer', models.CharField(max_length=255, verbose_name='Answer')),
-                ('game', models.ForeignKey(related_name='questions', verbose_name='Game', to='jeopardy.Game')),
-                ('points', models.ForeignKey(related_name='points', verbose_name='Points', to='jeopardy.Points')),
+                ('game', models.ForeignKey(related_name='questions', verbose_name='Game', to='jeopardy.Game', on_delete=models.CASCADE)),
+                ('points', models.ForeignKey(related_name='points', verbose_name='Points', to='jeopardy.Points', on_delete=models.CASCADE)),
             ],
         ),
         migrations.CreateModel(
@@ -57,17 +57,17 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=50, verbose_name='Name')),
-                ('game', models.ForeignKey(related_name='topic', verbose_name='Game', to='jeopardy.Game')),
+                ('game', models.ForeignKey(related_name='topic', verbose_name='Game', to='jeopardy.Game', on_delete=models.CASCADE)),
             ],
         ),
         migrations.AddField(
             model_name='question',
             name='topic',
-            field=models.ForeignKey(related_name='topic', verbose_name='Topic', to='jeopardy.Topic'),
+            field=models.ForeignKey(related_name='topic', verbose_name='Topic', to='jeopardy.Topic', on_delete=models.CASCADE),
         ),
         migrations.AddField(
             model_name='bonusquestion',
             name='game',
-            field=models.ForeignKey(related_name='bonus_question', verbose_name='Game', to='jeopardy.Game'),
+            field=models.ForeignKey(related_name='bonus_question', verbose_name='Game', to='jeopardy.Game', on_delete=models.CASCADE),
         ),
     ]

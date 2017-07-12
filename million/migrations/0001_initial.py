@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('answer_three_correct', models.BooleanField()),
                 ('answer_four', models.CharField(max_length=50)),
                 ('answer_four_correct', models.BooleanField()),
-                ('game', models.ForeignKey(to='million.Game')),
+                ('game', models.ForeignKey(to='million.Game', on_delete=models.CASCADE)),
             ],
         ),
     ]

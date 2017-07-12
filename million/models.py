@@ -1,6 +1,6 @@
 import time
 from django.db import models
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
@@ -23,7 +23,7 @@ def question_image_path(instance, filename):
     return ("million/{0}/{1}".format(time.strftime("%y"), filename.lower()))
 
 class Question(models.Model):
-    game = models.ForeignKey(Game, verbose_name=_('Game'))
+    game = models.ForeignKey(Game, verbose_name=_('Game'), on_delete=models.CASCADE)
     question = models.CharField(max_length=255, verbose_name=_('Question'))
     picture = models.ImageField(null=True, blank=True, verbose_name=_('Picture'), upload_to=question_image_path)
 

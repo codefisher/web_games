@@ -1,6 +1,6 @@
 import random
 from django.shortcuts import render, get_object_or_404, redirect
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from .models import Game, Question
 # Create your views here.
 

@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('time', models.DateTimeField(default=datetime.datetime.now, verbose_name=b'Time', blank=True)),
-                ('game', models.ForeignKey(related_name='results', verbose_name='Result', to='jeopardy.Game')),
+                ('game', models.ForeignKey(related_name='results', verbose_name='Result', to='jeopardy.Game', on_delete=models.CASCADE)),
             ],
             options={
                 'verbose_name': 'Result',
@@ -42,6 +42,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='player',
             name='result',
-            field=models.ForeignKey(verbose_name='Result', to='jeopardy.Result'),
+            field=models.ForeignKey(verbose_name='Result', to='jeopardy.Result', on_delete=models.CASCADE),
         ),
     ]

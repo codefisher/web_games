@@ -24,6 +24,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='question',
             name='topic',
-            field=models.ForeignKey(related_name='topicopi', verbose_name='Topic', to='jeopardy.Topic'),
+            field=models.ForeignKey(related_name='topicopi', verbose_name='Topic', to='jeopardy.Topic', on_delete=models.CASCADE),
         ),
     ]

@@ -63,7 +63,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='question',
             name='game',
-            field=models.ForeignKey(verbose_name='Game', to='million.Game'),
+            field=models.ForeignKey(verbose_name='Game', to='million.Game', on_delete=models.CASCADE),
         ),
         migrations.AlterField(
             model_name='question',

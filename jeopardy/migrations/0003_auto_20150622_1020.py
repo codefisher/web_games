@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='question',
             name='points',
-            field=models.ForeignKey(related_name='points', verbose_name='Points', to='jeopardy.Points', null=True),
+            field=models.ForeignKey(related_name='points', verbose_name='Points', to='jeopardy.Points', null=True, on_delete=models.CASCADE),
         ),
         migrations.AlterField(
             model_name='question',
@@ -34,6 +34,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='question',
             name='topic',
-            field=models.ForeignKey(related_name='topicopi', verbose_name='Topic', to='jeopardy.Topic', null=True),
+            field=models.ForeignKey(related_name='topicopi', verbose_name='Topic', to='jeopardy.Topic', null=True, on_delete=models.CASCADE),
         ),
     ]

@@ -2,7 +2,7 @@ import json
 import os
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Game, Topic, Question, BonusQuestion, Points, Result, Player
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from operator import itemgetter
 from random import randint
 from django.utils.translation import ugettext_lazy as _

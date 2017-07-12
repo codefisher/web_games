@@ -1,7 +1,7 @@
 import time
 import datetime
 from django.db import models
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
 def question_image_path(instance, filename):
@@ -35,7 +35,7 @@ class BonusQuestion(models.Model):
         verbose_name_plural = _('Final Question')
 
     game = models.ForeignKey(
-        Game, verbose_name=_('Game'), related_name="bonus_question")
+        Game, verbose_name=_('Game'), related_name="bonus_question", on_delete=models.CASCADE)
     question = models.CharField(max_length=255, verbose_name=_('Question'))
     picture = models.ImageField(
         null=True, blank=True, verbose_name=_('Picture'),
@@ -64,7 +64,7 @@ class Points(models.Model):
         verbose_name_plural = _('Points')
 
     game = models.ForeignKey(
-        Game, verbose_name=_('Game'), related_name="points")
+        Game, verbose_name=_('Game'), related_name="points", on_delete=models.CASCADE)
     value = models.IntegerField(verbose_name=_('Value'))
 
     def __str__(self):
@@ -72,7 +72,7 @@ class Points(models.Model):
 
 class Topic(models.Model):
     game = models.ForeignKey(
-        Game, verbose_name=_('Game'), related_name="topic")
+        Game, verbose_name=_('Game'), related_name="topic", on_delete=models.CASCADE)
     name = models.CharField(max_length=50, verbose_name=_('Name'))
 
     def __unicode__(self):
@@ -81,11 +81,11 @@ class Topic(models.Model):
 class Question(models.Model):
 
     game = models.ForeignKey(
-        Game, verbose_name=_('Game'), related_name="questions")
+        Game, verbose_name=_('Game'), related_name="questions", on_delete=models.CASCADE)
     points = models.ForeignKey(
-        Points, null=True, verbose_name=_('Points'), related_name="points")
+        Points, null=True, verbose_name=_('Points'), related_name="points", on_delete=models.CASCADE)
     topic = models.ForeignKey(
-        Topic, null=True, verbose_name=_('Topic'), related_name="topic")
+        Topic, null=True, verbose_name=_('Topic'), related_name="topic", on_delete=models.CASCADE)
     question = models.CharField(
         max_length=255, blank=True, null=True, verbose_name=_('Question'))
     picture = models.ImageField(
@@ -118,7 +118,7 @@ class Result(models.Model):
         verbose_name = _('Result')
 
     game = models.ForeignKey(
-        Game, verbose_name=_('Result'), related_name="results")
+        Game, verbose_name=_('Result'), related_name="results", on_delete=models.CASCADE)
     time = models.DateTimeField(blank=True, default=datetime.datetime.now,
             verbose_name="Time")
 
@@ -132,5 +132,5 @@ class Player(models.Model):
 
     name = models.CharField(max_length=50, verbose_name=_('Player Name'))
     points = models.IntegerField(verbose_name=_('Points'))
-    result = models.ForeignKey(Result, verbose_name=_('Result'))
+    result = models.ForeignKey(Result, verbose_name=_('Result'), on_delete=models.CASCADE)
 
